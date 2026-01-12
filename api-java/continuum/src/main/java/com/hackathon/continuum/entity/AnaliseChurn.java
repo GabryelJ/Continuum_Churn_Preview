@@ -12,53 +12,51 @@ public class AnaliseChurn {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cliente_id;
-    @Column(nullable = false)
+    @Column(name = "nome", nullable = false)
     private String nome;
-    @Column
+    @Column(name = "nps_score")
     private Integer npsScore;
-    @Column
+    @Column(name = "tempo_contrato_meses")
     private Double tempoContratoMeses;
-    @Column
+    @Column(name = "tentou_cancelar_antes")
     private String tentouCancelarAntes;
-    @Column
+    @Column(name = "valor_mensal")
     private Double valorMensal;
-    @Column
+    @Column(name = "atrasos_pagamento_12m")
     private Integer atrasosPagamento12m;
-    @Column
+    @Column(name = "duracao_media_treino_min")
     private Integer duracaoMediaTreinoMin;
-    @Column
+    @Column(name = "engajamento_por_custo")
     private Double engajamentoPorCusto;
-    @Column
+    @Column(name = "reducao_frequencia_3m")
     private String reducaoFrequencia3m;
-    @Column
+    @Column(name = "frequencia_mensal")
     private Integer frequenciaMensal;
-    @Column
+    @Column(name = "tem_personal_trainer")
     private String temPersonalTrainer;
-    @Column
+    @Column(name = "numero_reclamacoes")
     private Integer numeroReclamacoes;
-    @Column
+    @Column(name = "participa_aulas_coletivas")
     private String participaAulasColetivas;
-    @Column
+    @Column(name = "participou_eventos")
     private String participouEventos;
-    @Column
+    @Column(name = "uso_app_academia")
     private String usaAppAcademia;
-    @Column
+    @Column(name = "forma_pagamento")
     private String formaPagamento;
-    @Column
+    @Column(name = "teve_desconto_promocao")
     private String teveDescontoPromocao;
-    @Column
+    @Column(name = "tipo_plano")
     private String tipoPlano;
-    @Column
+    @Column(name = "idade")
     private Integer idade;
-    @Column
+    @Column(name = "genero")
     private String genero;
-    @Column
+    @Column(name = "data_inicio_contrato")
     private LocalDate dataInicioContrato;
-    @Column
+    @Column(name = "dias_desde_ultimo_acesso")
     private Integer diasDesdeUltimoAcesso;
-//    @Column TODO: rever necessidade de atributo churn
-//    private String churn;
-    @Column(nullable = false, updatable = false)
+    @Column(name = "criacao_data_hora", nullable = false, updatable = false)
     private LocalDateTime criacaoDataHora; // Data/hora de criação
 
     // Construtor padrão (OBRIGATÓRIO para JPA)
@@ -256,14 +254,6 @@ public class AnaliseChurn {
         this.diasDesdeUltimoAcesso = diasDesdeUltimoAcesso;
     }
 
-//    public String getChurn() {TODO: rever necessidade de atributo churn
-//        return churn;
-//    }
-//
-//    public void setChurn(String churn) {TODO: rever necessidade de atributo churn
-//        this.churn = churn;
-//    }
-
     public LocalDateTime getCriacaoDataHora() {
         return criacaoDataHora;
     }
@@ -271,7 +261,4 @@ public class AnaliseChurn {
     public void setCriacaoDataHora(LocalDateTime criacaoDataHora) {
         this.criacaoDataHora = criacaoDataHora;
     }
-
-    
-
 }
