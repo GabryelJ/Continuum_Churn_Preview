@@ -10,6 +10,9 @@ import java.time.LocalDate;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record EntradaDTO(
 
+    @NotBlank(message = "O nome é obrigatório")
+    String nome,
+
     // Score NPS: obrigatório e normalmente varia de 0 a 10
     @NotNull(message = "O NPS Score é obrigatório")
     @Min(value = 0, message = "O NPS Score não pode ser negativo")
@@ -104,9 +107,9 @@ public record EntradaDTO(
     
     @Positive(message = "Os dias desde o último acesso devem ser positivos") 
     @JsonAlias("dias_desde_ultimo_acesso") 
-    Integer dias_desde_ultimo_acesso, 
+    Integer dias_desde_ultimo_acesso
     
-    @JsonAlias("churn") 
-    String churn // "Sim" ou "Não" )     
+//    @JsonAlias("churn")
+//    String churn // "Sim" ou "Não" )
 ) {
 }

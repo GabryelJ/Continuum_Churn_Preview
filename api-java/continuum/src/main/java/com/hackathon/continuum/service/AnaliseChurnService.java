@@ -19,7 +19,7 @@ public class AnaliseChurnService {
 
         AnaliseChurn analise = new AnaliseChurn();
 
-        analise.getNome();
+        analise.setNome(dto.nome());
         analise.setNpsScore(dto.nps_score());
         analise.setTempoContratoMeses(dto.tempo_contrato_meses());
         analise.setTentouCancelarAntes(dto.tentou_cancelar_antes());
@@ -33,13 +33,15 @@ public class AnaliseChurnService {
         analise.setNumeroReclamacoes(dto.numero_reclamacoes());
         analise.setParticipaAulasColetivas(dto.participa_aulas_coletivas());
         analise.setParticipouEventos(dto.participou_eventos());
-        analise.setUsoAppAcademia(dto.usa_app_academia());
+        analise.setUsaAppAcademia(dto.usa_app_academia());
         analise.setFormaPagamento(dto.forma_pagamento());
         analise.setTeveDescontoPromocao(dto.teve_desconto_promocao());
         analise.setTipoPlano(dto.tipo_plano());
+        analise.setIdade(dto.idade());
+        analise.setGenero(dto.genero());
         analise.setDataInicioContrato(dto.data_inicio_contrato());
         analise.setDiasDesdeUltimoAcesso(dto.dias_desde_ultimo_acesso());
-        analise.setChurn(dto.churn());
+//        analise.setChurn(dto.churn()); TODO: rever necessidade de atributo churn
 
         return repository.save(analise);
     }

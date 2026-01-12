@@ -56,8 +56,8 @@ public class AnaliseChurn {
     private LocalDate dataInicioContrato;
     @Column
     private Integer diasDesdeUltimoAcesso;
-    @Column
-    private String churn;
+//    @Column TODO: rever necessidade de atributo churn
+//    private String churn;
     @Column(nullable = false, updatable = false)
     private LocalDateTime criacaoDataHora; // Data/hora de criação
 
@@ -192,11 +192,11 @@ public class AnaliseChurn {
         this.participouEventos = participouEventos;
     }
 
-    public String getUsoAppAcademia() {
+    public String getUsaAppAcademia() {
         return usaAppAcademia;
     }
 
-    public void setUsoAppAcademia(String usaAppAcademia) {
+    public void setUsaAppAcademia(String usaAppAcademia) {
         this.usaAppAcademia = usaAppAcademia;
     }
 
@@ -256,13 +256,13 @@ public class AnaliseChurn {
         this.diasDesdeUltimoAcesso = diasDesdeUltimoAcesso;
     }
 
-    public String getChurn() {
-        return churn;
-    }
-
-    public void setChurn(String churn) {
-        this.churn = churn;
-    }
+//    public String getChurn() {TODO: rever necessidade de atributo churn
+//        return churn;
+//    }
+//
+//    public void setChurn(String churn) {TODO: rever necessidade de atributo churn
+//        this.churn = churn;
+//    }
 
     public LocalDateTime getCriacaoDataHora() {
         return criacaoDataHora;
