@@ -1,11 +1,9 @@
 package com.hackathon.continuum.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.*;
 
-import java.time.LocalDate;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record EntradaModeloDTO(

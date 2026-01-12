@@ -1,0 +1,175 @@
+/* RESET BÁSICO */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+/* HEADER */
+header {
+  background: #1e88e5;
+  color: white;
+  padding: 20px 16px;
+  text-align: center;
+}
+
+/* CONTEÚDO CENTRAL */
+main {
+  padding: 16px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* CARD */
+.card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* FORMULÁRIO */
+
+/* formulário começa fechado */
+.form-collapsed {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+/* formulário aberto */
+.form-expanded {
+  max-height: 5000px; /* valor alto para comportar o form */
+  transition: max-height 0.6s ease;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* FIELDSET */
+fieldset {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+legend {
+  padding: 0 8px;
+  font-weight: bold;
+  color: #1e88e5;
+}
+
+/* GRUPO DE CAMPOS */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+/* INPUTS */
+.form-group input,
+.form-group select {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+}
+
+/* ERRO */
+.campo-erro {
+  border: 2px solid #e53935 !important;
+}
+
+.erro-msg {
+  margin-top: 12px;
+  color: #e53935;
+  font-weight: bold;
+}
+
+/* BOTÃO */
+button {
+  margin-top: 10px;
+  padding: 12px;
+  background: #1e88e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background: #1565c0;
+}
+
+/* GRID (para tabelas e dashboards) */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* TABELA */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: auto;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background: #eeeeee;
+}
+
+/* ========================= */
+/* TELAS MAIORES (TABLET+) */
+/* ========================= */
+@media (min-width: 768px) {
+
+  form {
+    gap: 32px;
+  }
+
+  fieldset {
+    padding: 20px;
+  }
+
+  /* campos em duas colunas */
+  fieldset {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  legend {
+    grid-column: 1 / -1;
+  }
+
+  button {
+    width: fit-content;
+    padding: 12px 32px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}

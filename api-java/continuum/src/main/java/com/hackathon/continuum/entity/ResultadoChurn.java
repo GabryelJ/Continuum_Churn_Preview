@@ -24,7 +24,7 @@ public class ResultadoChurn {
 
     @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false)
-    private AnalizeChurn analizeChurn;
+    private AnaliseChurn analiseChurn;
 
     @Column(nullable = false)
     private Double probabilidadeChurn;
@@ -49,8 +49,8 @@ public class ResultadoChurn {
 	}
 
 	// Construtor 
-	public ResultadoChurn(RespostaDTO dto, AnalizeChurn analizeChurn) {
-    this.analizeChurn = analizeChurn;
+	public ResultadoChurn(RespostaDTO dto, AnaliseChurn analiseChurn) {
+    this.analiseChurn = analiseChurn;
     this.probabilidadeChurn = dto.probabilidade_churn();
     this.risco = dto.risco();
     this.primeiroMaisRelevante = dto.primeiro_mais_relevante();
@@ -65,44 +65,14 @@ public class ResultadoChurn {
 	}
 
 	// Getters
-	public Long getId() {
-        return resultado_churn_id;
-    }
-
-    public AnalizeChurn getAnalizeChurn() {
-        return analizeChurn;
-    }
-
-    public Double getProbabilidadeChurn() {
-        return probabilidadeChurn;
-    }
-
-    public String getRisco() {
-        return risco;
-    }
-
-    public String getPrimeiroMaisRelevante() {
-        return primeiroMaisRelevante;
-    }
-
-    public String getSegundoMaisRelevante() {
-        return segundoMaisRelevante;
-    }
-
-    public String getTerceiroMaisRelevante() {
-        return terceiroMaisRelevante;
-    }
-
-    public LocalDateTime getResultadoDataHora() {
-        return resultadoDataHora;
-    }
+	
 
 	// toString
 	@Override
     public String toString() {
         return "ResultadoChurn{" +
                 "id=" + resultado_churn_id +
-                ", analizeChurnId=" + analizeChurn.getId() +
+                ", analiseChurnId=" + analiseChurn.getId() +
                 ", probabilidadeChurn=" + probabilidadeChurn +
                 ", risco='" + risco + '\'' +
                 ", primeiroMaisRelevante='" + primeiroMaisRelevante + '\'' +
@@ -110,6 +80,70 @@ public class ResultadoChurn {
                 ", terceiroMaisRelevante='" + terceiroMaisRelevante + '\'' +
                 ", resultadoDataHora=" + resultadoDataHora +
                 '}';
+    }
+
+    public Long getResultado_churn_id() {
+        return resultado_churn_id;
+    }
+
+    public void setResultado_churn_id(Long resultado_churn_id) {
+        this.resultado_churn_id = resultado_churn_id;
+    }
+
+    public AnaliseChurn getAnaliseChurn() {
+        return analiseChurn;
+    }
+
+    public void setAnaliseChurn(AnaliseChurn analiseChurn) {
+        this.analiseChurn = analiseChurn;
+    }
+
+    public Double getProbabilidadeChurn() {
+        return probabilidadeChurn;
+    }
+
+    public void setProbabilidadeChurn(Double probabilidadeChurn) {
+        this.probabilidadeChurn = probabilidadeChurn;
+    }
+
+    public String getRisco() {
+        return risco;
+    }
+
+    public void setRisco(String risco) {
+        this.risco = risco;
+    }
+
+    public String getPrimeiroMaisRelevante() {
+        return primeiroMaisRelevante;
+    }
+
+    public void setPrimeiroMaisRelevante(String primeiroMaisRelevante) {
+        this.primeiroMaisRelevante = primeiroMaisRelevante;
+    }
+
+    public String getSegundoMaisRelevante() {
+        return segundoMaisRelevante;
+    }
+
+    public void setSegundoMaisRelevante(String segundoMaisRelevante) {
+        this.segundoMaisRelevante = segundoMaisRelevante;
+    }
+
+    public String getTerceiroMaisRelevante() {
+        return terceiroMaisRelevante;
+    }
+
+    public void setTerceiroMaisRelevante(String terceiroMaisRelevante) {
+        this.terceiroMaisRelevante = terceiroMaisRelevante;
+    }
+
+    public LocalDateTime getResultadoDataHora() {
+        return resultadoDataHora;
+    }
+
+    public void setResultadoDataHora(LocalDateTime resultadoDataHora) {
+        this.resultadoDataHora = resultadoDataHora;
     }
 
 }
