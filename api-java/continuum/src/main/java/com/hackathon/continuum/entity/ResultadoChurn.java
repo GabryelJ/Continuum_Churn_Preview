@@ -26,10 +26,10 @@ public class ResultadoChurn {
     @JoinColumn(name = "cliente_id", nullable = false)
     private AnaliseChurn analiseChurn;
 
-    @Column(nullable = false)
+    @Column(name = "probabilidade_churn", nullable = false)
     private Double probabilidadeChurn;
 
-    @Column(nullable = false)
+    @Column(name = "risco", nullable = false)
     private String risco;
 
     @Column(name = "primeiro_mais_relevante", length = 100)
@@ -41,7 +41,7 @@ public class ResultadoChurn {
 	@Column(name = "terceiro_mais_relevante", length = 100)
 	private String terceiroMaisRelevante;
 
-    @Column(nullable = false, updatable = false)
+    @Column(name = "resultado_data_hora" ,nullable = false, updatable = false)
     private LocalDateTime resultadoDataHora;
 
 	// Construtor padrão
