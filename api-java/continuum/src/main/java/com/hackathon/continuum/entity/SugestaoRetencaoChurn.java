@@ -28,10 +28,10 @@ public class SugestaoRetencaoChurn {
     @JoinColumn(name = "resultado_churn_id")
     private ResultadoChurn resultadoChurn;
 
-    @Column(nullable = false, length = 200)
+    @Column(name = "acao_retencao", nullable = false, length = 200)
     private String acaoRetencao;
 
-    @Column(nullable = false)
+    @Column(name = "data_hora_acao_retencao", nullable = false)
     private LocalDateTime dataHoraCriacao;
 
     public SugestaoRetencaoChurn() {
