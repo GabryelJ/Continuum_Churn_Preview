@@ -41,7 +41,7 @@ public class AnaliseChurn {
     @Column
     private String participouEventos;
     @Column
-    private String usoAppAcademia;
+    private String usaAppAcademia;
     @Column
     private String formaPagamento;
     @Column
@@ -193,11 +193,11 @@ public class AnaliseChurn {
     }
 
     public String getUsoAppAcademia() {
-        return usoAppAcademia;
+        return usaAppAcademia;
     }
 
-    public void setUsoAppAcademia(String usoAppAcademia) {
-        this.usoAppAcademia = usoAppAcademia;
+    public void setUsoAppAcademia(String usaAppAcademia) {
+        this.usaAppAcademia = usaAppAcademia;
     }
 
     public String getFormaPagamento() {

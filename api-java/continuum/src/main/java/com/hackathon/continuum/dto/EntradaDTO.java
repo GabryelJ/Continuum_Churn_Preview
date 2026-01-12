@@ -79,8 +79,8 @@ public record EntradaDTO(
     @JsonAlias("num__participou_eventos") 
     String participou_eventos, // "Sim" ou "Não" 
     
-    @JsonAlias("num__uso_app_academia") 
-    String uso_app_academia, // "Sim" ou "Não" 
+    @JsonAlias("num__usa_app_academia")
+    String usa_app_academia, // "Sim" ou "Não"
     
     @JsonAlias("cat__forma_pagamento") 
     String forma_pagamento, // "Cartão de Crédito", "Débito Automático", "Pix", "Boleto" 

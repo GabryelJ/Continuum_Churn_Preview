@@ -1,8 +1,11 @@
 package com.hackathon.continuum.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.*;
+
+import java.time.LocalDate;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -77,8 +80,8 @@ public record EntradaModeloDTO(
         @JsonAlias("num__participou_eventos")
         String participou_eventos, // "Sim" ou "Não"
 
-        @JsonAlias("num__uso_app_academia")
-        String uso_app_academia, // "Sim" ou "Não"
+        @JsonAlias("num__usa_app_academia")
+        String usa_app_academia, // "Sim" ou "Não"
 
         @JsonAlias("cat__forma_pagamento")
         String forma_pagamento, // "Cartão de Crédito", "Débito Automático", "Pix", "Boleto"
@@ -127,7 +130,7 @@ public record EntradaModeloDTO(
             entradaDTO.numero_reclamacoes(),
             entradaDTO.participa_aulas_coletivas(),
             entradaDTO.participou_eventos(),
-            entradaDTO.uso_app_academia(),
+            entradaDTO.usa_app_academia(),
             entradaDTO.forma_pagamento(),
             entradaDTO.teve_desconto_promocao(),
             entradaDTO.tipo_plano(),

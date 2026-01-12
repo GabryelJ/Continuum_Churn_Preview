@@ -33,7 +33,7 @@ public class AnaliseChurnService {
         analise.setNumeroReclamacoes(dto.numero_reclamacoes());
         analise.setParticipaAulasColetivas(dto.participa_aulas_coletivas());
         analise.setParticipouEventos(dto.participou_eventos());
-        analise.setUsoAppAcademia(dto.uso_app_academia());
+        analise.setUsoAppAcademia(dto.usa_app_academia());
         analise.setFormaPagamento(dto.forma_pagamento());
         analise.setTeveDescontoPromocao(dto.teve_desconto_promocao());
         analise.setTipoPlano(dto.tipo_plano());
