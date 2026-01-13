@@ -1,6 +1,7 @@
 package com.hackathon.continuum.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.*;
 
@@ -8,6 +9,9 @@ import java.time.LocalDate;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record EntradaDTO(
+
+    @NotBlank(message = "O nome é obrigatório")
+    String nome,
 
     // Score NPS: obrigatório e normalmente varia de 0 a 10
     @NotNull(message = "O NPS Score é obrigatório")
@@ -78,8 +82,8 @@ public record EntradaDTO(
     @JsonAlias("num__participou_eventos") 
     String participou_eventos, // "Sim" ou "Não" 
     
-    @JsonAlias("num__uso_app_academia") 
-    String uso_app_academia, // "Sim" ou "Não" 
+    @JsonAlias("num__usa_app_academia")
+    String usa_app_academia, // "Sim" ou "Não"
     
     @JsonAlias("cat__forma_pagamento") 
     String forma_pagamento, // "Cartão de Crédito", "Débito Automático", "Pix", "Boleto" 
@@ -97,14 +101,15 @@ public record EntradaDTO(
     @JsonAlias("idade") 
     Integer idade, 
     
-    @JsonAlias("data_inicio_contrato") 
+    @JsonAlias("data_inicio_contrato")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     LocalDate data_inicio_contrato, 
     
     @Positive(message = "Os dias desde o último acesso devem ser positivos") 
     @JsonAlias("dias_desde_ultimo_acesso") 
-    Integer dias_desde_ultimo_acesso, 
+    Integer dias_desde_ultimo_acesso
     
-    @JsonAlias("churn") 
-    String churn // "Sim" ou "Não" )     
+//    @JsonAlias("churn")
+//    String churn // "Sim" ou "Não" )
 ) {
 }

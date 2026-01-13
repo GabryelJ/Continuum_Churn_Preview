@@ -472,6 +472,7 @@ O projeto uniu esforços de **Ciência de Dados** e **Back-End** para construir 
 ## 🖥️ Equipe de Back-End
 
 - Nayara Calixto — [LinkedIn](https://www.linkedin.com/in/nayara-calixto-dev/)  
+- Geovane Dias — [LinkedIn](https://www.linkedin.com/in/geovane-dias/)  
 - Gabryel Júlio dos Santos — [LinkedIn](https://www.linkedin.com/in/gabryel-santos)  
 
 ---

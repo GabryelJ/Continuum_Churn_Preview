@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Continuum</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header>
+  <h1>📉 Continuum Preview Churn</h1>
+  <p>Previsão de cancelamento de clientes</p>
+</header>
+
+<main>
+
+  <!-- FORMULÁRIO -->
+  <section class="card">
+
+    <div class="card-header">
+      <h2>📋 Análise Individual</h2>
+      <button id="toggleFormBtn" type="button">➕ Nova Análise</button>
+    </div>
+
+    <div id="formContainer" class="form-collapsed">
+
+      <form id="churnForm">
+
+        <!-- DADOS DO CLIENTE -->
+        <fieldset>
+          <legend>👤 Dados do Cliente</legend>
+
+          <div class="form-group">
+            <label>Nome do Cliente*</label>
+            <input type="text" id="nome" required />
+          </div>
+
+          <div class="form-group">
+            <label>Idade</label>
+            <input type="number" id="idade" />
+          </div>
+
+          <div class="form-group">
+            <label>Gênero</label>
+            <select id="genero" >
+              <option value="">Selecione</option>
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label>Tipo de Plano</label>
+            <select id="tipo_de_plano" >
+              <option value="">Selecione</option>
+              <option value="Basico">Básico</option>
+              <option value="Intermediario">Intermediário</option>
+              <option value="Premium">Premium</option>
+              <option value="VIP">VIP</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label>Forma de Pagamento</label>
+            <select id="forma_pagamento" >
+              <option value="">Selecione</option>
+              <option value="Boleto">Boleto</option>
+              <option value="Cartao">Cartão de Crédito</option>
+              <option value="Debito">Débito Automático</option>
+              <option value="PIX">PIX</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Data de Início do Contrato</label>
+            <input type="date" id="data_inicio_contrato" />
+          </div>
+        </fieldset>
+
+        <!-- COMPORTAMENTO -->
+        <fieldset>
+          <legend>🏋️ Comportamento & Engajamento</legend>
+
+          <div class="form-group">
+            <label>Frequência Mensal*</label>
+            <input type="number" id="frequencia_mensal" required />
+          </div>
+
+          <div class="form-group">
+            <label>Duração Média do Treino (min)*</label>
+            <input type="number" id="duracao_media_treino_min" required />
+          </div>
+
+          <div class="form-group">
+            <label>Engajamento por Custo*</label>
+            <input type="number" step="0.01" id="engajamento_por_custo" required />
+          </div>
+
+          <div class="form-group">
+            <label>Dias Desde Último Acesso</label>
+            <input type="number" id="dias_desde_ultimo_acesso" />
+          </div>
+        </fieldset>
+
+        <!-- INTERAÇÕES -->
+        <fieldset>
+          <legend>📊 Interações</legend>
+
+          <div class="form-group">
+            <label>Participa de Aulas Coletivas?</label>
+            <select id="participa_aulas_coletivas" >
+              <option value="">Selecione</option>
+              <option value="Sim">Sim</option>
+              <option value="Não">Não</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Possui Personal Trainer?*</label>
+            <select id="tem_personal_trainer" required>
+              <option value="">Selecione</option>
+              <option value="Sim">Sim</option>
+              <option value="Não">Não</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Participou de Eventos?</label>
+            <select id="participou_eventos" >
+              <option value="">Selecione</option>
+              <option value="Sim">Sim</option>
+              <option value="Não">Não</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Usa App da Academia?</label>
+            <select id="uso_app_academia" >
+              <option value="">Selecione</option>
+              <option value="Sim">Sim</option>
+              <option value="Não">Não</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <!-- FINANCEIRO -->
+        <fieldset>
+          <legend>⚠️ Financeiro & Risco</legend>
+
+          <div class="form-group">
+            <label>Valor Mensal (R$)*</label>
+            <input type="number" step="0.01" id="valor_mensal" required />
+          </div>
+
+          <div class="form-group">
+            <label>Atrasos de Pagamento (12 meses)*</label>
+            <input type="number" id="atrasos_pagamento_12m" required />
+          </div>
+
+          <div class="form-group">
+            <label>NPS Score*</label>
+            <input type="number" id="nps_score" min="0" max="10" required />
+          </div>
+
+          <div class="form-group">
+            <label>Número de Reclamações</label>
+            <input type="number" id="numero_reclamacoes" />
+          </div>
+
+          <div class="form-group">
+            <label>Tentou cancelar antes?*</label>
+            <select id="tentou_cancelar_antes" required>
+              <option value="">Selecione</option>
+              <option value="Sim">Sim</option>
+              <option value="Não">Não</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Redução de Frequência (3 meses)*</label>
+            <select id="reducao_frequencia_3m" required>
+              <option value="">Selecione</option>
+              <option value="Sim">Sim</option>
+              <option value="Não">Não</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Teve Desconto Promocional?</label>
+            <select id="teve_desconto_promocao" >
+              <option value="">Selecione</option>
+              <option value="Sim">Sim</option>
+              <option value="Não">Não</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Churn (Sim / Não)</label>
+            <select id="churn" >
+              <option value="">Selecione</option>
+              <option value="Sim">Sim</option>
+              <option value="Não">Não</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <button type="submit">Analisar Churn</button>
+        <p id="formErro" class="erro-msg"></p>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- UPLOAD CSV -->
+  <section class="card">
+    <h2>📂 Envio em Lote (.CSV)</h2>
+    <input type="file" id="csvFile" accept=".csv" />
+    <button type="button" onclick="enviarCSV()">⬆️ Enviar arquivo</button>
+  </section>
+
+  <!-- RESULTADO -->
+  <section class="card" id="resultado">
+    <h2>📊 Resultado da Análise</h2>
+    <p><strong>Probabilidade de Churn:</strong> <span id="probabilidade">--</span></p>
+    <p><strong>Risco:</strong> <span id="risco">--</span></p>
+    <ul id="relevantes"></ul>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section class="card">
+    <h2>📈 Dashboard – Clientes com Maior Risco</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Probabilidade</th>
+          <th>Risco</th>
+        </tr>
+      </thead>
+      <tbody id="dashboard"></tbody>
+    </table>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
