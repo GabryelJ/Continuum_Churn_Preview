@@ -47,8 +47,6 @@ public record EntradaDTO(
     Integer duracao_media_treino_min,
 
     // Engajamento do cliente em relação ao custo (ex: índice numérico)
-    @NotNull(message = "O engajamento por custo é obrigatório")
-    @PositiveOrZero(message = "O engajamento por custo não pode ser negativo")
     @JsonAlias("num__engajamento_por_custo")
     Double engajamento_por_custo,
 
@@ -69,6 +67,7 @@ public record EntradaDTO(
     String tem_personal_trainer,
 
     // --- Novos atributos opcionais --- 
+    @PositiveOrZero(message = "O número de reclamações não pode ser negativa")
     @Positive(message = "O número de reclamações deve ser positivo") 
     @JsonAlias("num__numero_reclamacoes") 
     Integer numero_reclamacoes, 
@@ -104,7 +103,10 @@ public record EntradaDTO(
     
     @Positive(message = "Os dias desde o último acesso devem ser positivos") 
     @JsonAlias("dias_desde_ultimo_acesso") 
-    Integer dias_desde_ultimo_acesso 
+    Integer dias_desde_ultimo_acesso,
+
+   // @JsonAlias("num__engajamento_por_custo")
+    //Double engajamento_por_custo
         
 ) {
 }
