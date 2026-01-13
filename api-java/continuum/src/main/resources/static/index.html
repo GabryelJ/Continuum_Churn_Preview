@@ -210,26 +210,39 @@
     <button type="button" onclick="enviarCSV()">⬆️ Enviar arquivo</button>
   </section>
 
-  <!-- RESULTADO -->
-  <section class="card" id="resultado">
-    <h2>📊 Resultado da Análise</h2>
-    <p><strong>Probabilidade de Churn:</strong> <span id="probabilidade">--</span></p>
-    <p><strong>Risco:</strong> <span id="risco">--</span></p>
-    <ul id="relevantes"></ul>
-  </section>
-
-  <!-- DASHBOARD -->
+<!-- ===============================
+       RELATÓRIO 1 – ANÁLISES
+  =============================== -->
   <section class="card">
-    <h2>📈 Dashboard – Clientes com Maior Risco</h2>
+    <h2>📊 Relatório de Análises de Churn</h2>
+
     <table>
       <thead>
         <tr>
           <th>Cliente</th>
           <th>Probabilidade</th>
           <th>Risco</th>
+          <th>Ação de Retenção</th>
         </tr>
       </thead>
       <tbody id="dashboard"></tbody>
+    </table>
+  </section>
+
+  <!-- ===============================
+       RELATÓRIO 2 – ATRIBUTOS
+  =============================== -->
+  <section class="card">
+    <h2>📌 Atributos Mais Relevantes</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Atributo</th>
+          <th>Quantidade</th>
+        </tr>
+      </thead>
+      <tbody id="tabela-atributos"></tbody>
     </table>
   </section>
 
