@@ -104,9 +104,7 @@ public record EntradaDTO(
     
     @Positive(message = "Os dias desde o último acesso devem ser positivos") 
     @JsonAlias("dias_desde_ultimo_acesso") 
-    Integer dias_desde_ultimo_acesso, 
-    
-    @JsonAlias("churn") 
-    String churn // "Sim" ou "Não" )     
+    Integer dias_desde_ultimo_acesso 
+        
 ) {
 }

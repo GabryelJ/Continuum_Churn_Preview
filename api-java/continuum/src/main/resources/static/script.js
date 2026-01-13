@@ -49,6 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
     =============================== */
     const payload = {
       nome: document.getElementById("nome").value,
+      idade: document.getElementById("idade").value,
+      genero: document.getElementById("genero").value,
       tipo_plano: document.getElementById("tipo_plano").value,
       forma_pagamento: document.getElementById("forma_pagamento").value,
       data_inicio_contrato: document.getElementById("data_inicio_contrato").value,
@@ -67,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
       tentou_cancelar_antes: document.getElementById("tentou_cancelar_antes").value,
       reducao_frequencia_3m: document.getElementById("reducao_frequencia_3m").value,
       teve_desconto_promocao: document.getElementById("teve_desconto_promocao").value,
-      churn: document.getElementById("churn").value
+      data_inicio_contrato: document.getElementById("data_inicio_contrato").value
     };
 
     /* ===============================
@@ -86,10 +88,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const data = await response.json();
 
+/* ===============================
+   EXIBE RESULTADOS
+================================ */
+
       document.getElementById("probabilidade").textContent =
         (data.probabilidade_churn * 100).toFixed(2) + "%";
 
       document.getElementById("risco").textContent = data.risco;
+
+      document.getElementById("acaoRetncao").textContent = data.acaoRetencao;
 
       const lista = document.getElementById("relevantes");
       lista.innerHTML = "";
@@ -97,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
       lista.innerHTML += `<li>${data.segundo_mais_relevante}</li>`;
       lista.innerHTML += `<li>${data.terceiro_mais_relevante}</li>`;
 
-      adicionarDashboard(payload.nome, data.probabilidade_churn, data.risco);
+      adicionarDashboard(payload.nome, data.probabilidade_churn, data.risco, data.acaoRetencao);
 
     } catch (error) {
       erroMsg.textContent = "Erro ao comunicar com o servidor";
@@ -110,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 /* ===============================
    DASHBOARD
 ================================ */
-function adicionarDashboard(nome, prob, risco) {
+function adicionarDashboard(nome, prob, risco, acaoRetencao) {
   const tabela = document.getElementById("dashboard");
   const tr = document.createElement("tr");
 
@@ -118,6 +126,7 @@ function adicionarDashboard(nome, prob, risco) {
     <td>${nome}</td>
     <td>${(prob * 100).toFixed(2)}%</td>
     <td>${risco}</td>
+    <td>${acaoRetencao}</td>
   `;
 
   tabela.appendChild(tr);

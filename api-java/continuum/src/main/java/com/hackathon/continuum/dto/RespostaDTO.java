@@ -9,6 +9,7 @@ public record RespostaDTO(
     @JsonAlias("risco") String risco,
     @JsonAlias("1_mais_relevante") String primeiro_mais_relevante,
 	@JsonAlias("2_mais_relevante") String segundo_mais_relevante,
-	@JsonAlias("3_mais_relevante") String terceiro_mais_relevante) {
-
+	@JsonAlias("3_mais_relevante") String terceiro_mais_relevante,
+    String acaoRetencao) {
+    
 }

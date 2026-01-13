@@ -39,7 +39,6 @@ public class AnaliseChurnService {
         analise.setTipoPlano(dto.tipo_plano());
         analise.setDataInicioContrato(dto.data_inicio_contrato());
         analise.setDiasDesdeUltimoAcesso(dto.dias_desde_ultimo_acesso());
-        analise.setChurn(dto.churn());
 
         return repository.save(analise);
     }
