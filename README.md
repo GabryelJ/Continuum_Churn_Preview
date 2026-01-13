@@ -276,6 +276,35 @@ Resposta esperada
       "3_mais_relevante": "nps_score"
     }
   ]
+
+modelo de JSON para teste no docker :
+
+{
+    "nome": "Fulano",
+    "cliente_id": "CLI_RISCO_1",
+    "genero": "F",
+    "idade": 22.0,
+    "data_inicio_contrato": "10/01/2024",
+    "tempo_contrato_meses": 3.0,
+    "tipo_plano": "Básico",
+    "valor_mensal": 89.90,
+    "forma_pagamento": "Boleto",
+    "frequencia_mensal": 3.0,
+    "duracao_media_treino_min": 40.0,
+    "tem_personal_trainer": 0.0,
+    "participa_aulas_coletivas": 0.0,
+    "usa_app_academia": 0.0,
+    "atrasos_pagamento_12m": 1.0,
+    "teve_desconto_promocao": 0.0,
+    "nps_score": 2.0,
+    "numero_reclamacoes": 1.0,
+    "participou_eventos": 0.0,
+    "reducao_frequencia_3m": 1.0,
+    "dias_desde_ultimo_acesso": 20.0,
+    "tentou_cancelar_antes": 1,
+    "engajamento_por_custo" : "55"
+}
+
 ```
 ▶️ Como executar Backend Java (H2): 
 
@@ -416,9 +445,12 @@ dash==2.14.0
 
 ### Construção e execução
 ```bash
-docker build -t continuum-api .
+docker build -t continuum-api
+
 docker run -d -p 8000:8000 continuum-api
-na raiz do arquivo docker compose up --bulid 
+
+na raiz do arquivo docker compose up --bulid
+ 
 para fazer teste no docker http://localhost:8080/predict
 ```
 
@@ -474,7 +506,6 @@ O projeto uniu esforços de **Ciência de Dados** e **Back-End** para construir 
 ## 🖥️ Equipe de Back-End
 
 - Nayara Calixto — [LinkedIn](https://www.linkedin.com/in/nayara-calixto-dev/)  
-- Geovane Dias — [LinkedIn](https://www.linkedin.com/in/geovane-dias/)  
 - Gabryel Júlio dos Santos — [LinkedIn](https://www.linkedin.com/in/gabryel-santos)  
 
 ---
