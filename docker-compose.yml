@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  spring-api:
+    build: ./api-java/continuum/
+    container_name: spring-api
+    ports:
+      - "8080:8080"
+    environment:
+      URI_API_CONTINUUM_CHURN_PYTHON: http://python-api:5000/predict
+    depends_on:
+      - python-api
+
+  python-api:
+    build: ./api-python/
+    container_name: python-api
+    ports:
+      - "5000:5000"
