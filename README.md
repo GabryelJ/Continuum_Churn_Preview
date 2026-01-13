@@ -418,6 +418,8 @@ dash==2.14.0
 ```bash
 docker build -t continuum-api .
 docker run -d -p 8000:8000 continuum-api
+na raiz do arquivo docker compose up --bulid 
+para fazer teste no docker http://localhost:8080/predict
 ```
 
 ---
