@@ -82,133 +82,24 @@ Essa integração permitirá que o negócio aja antes que o cliente decida sair,
 
 ---
 
-## ▶️ Como executar o modelo e a API
+## ▶️ API de Previsão de Churn
 
-### 1. Treinar e salvar o modelo :
 
-Este arquivo foi Churn_Academia_V15.ipynb utilizado para criação do modelo pipeline.
+## 🚀 Visão Geral
 
-```python
-import joblib
-from sklearn.pipeline import Pipeline
-
-# O modelo completo e otimizado já foi treinado e está armazenado em `modelo_rf_otimizado`.
-# Não precisamos recriar um pipeline, apenas salvar o existente.
-
-joblib.dump(modelo_rf_otimizado, "modelo_pipeline_completo.pkl")
+Este projeto disponibiliza uma API em Flask que carrega um modelo de Machine Learning previamente treinado e salvo (Churn_Academia_V15.ipynb).
+A API recebe dados de clientes em formato JSON e retorna:
+• 	Probabilidade de churn
+• 	Classificação de risco (ALTO/BAIXO)
+• 	As 3 features mais relevantes para a previsão
 
 ```
-
-🔗 API Python (Flask) e integração com o modelo (Python):
-
-
-```
-python
-from fastapi import Flask
-import json
-
-import joblib
-from flask import Flask, jsonify, request
-
-import previsao_lote
-
-
-def load_config():
-    with open('config.json', 'r', encoding='utf-8') as f:
-        return json.load(f)
-
-config = load_config()
-VALORES_PADRAO = config['VALORES_PADRAO']
-PORTA = config['PORTA']
-
-caminho_modelo = 'modelo_pipeline_completo.pkl'
-
-
-app = Flask(__name__)
-
-model = joblib.load(caminho_modelo)
-
-
-@app.route('/predict', methods=['POST'])
-def predict():
-
-    dados_dict = [request.get_json() | VALORES_PADRAO]
-
-    try:
-        resultados = previsao_lote.fazer_previsao_lote(dados_dict, model)
-        print(resultados)
-        resultado = resultados[0]
-
-        return jsonify({
-            "cliente_id": resultado["cliente_id"],
-            "probabilidade": resultado["probabilidade_churn"],
-            "risco": resultado["risco"],
-            "1_mais_relevante": resultado["1_mais_relevante"],
-            "2_mais_relevante": resultado["2_mais_relevante"],
-            "3_mais_relevante": resultado["3_mais_relevante"]
-        })
-
-    except Exception as e:
-        return jsonify({"erro": str(e)}), 400
-
-if __name__ == '__main__':
-    app.run(port=PORTA)
-```
-
-Rodar a API com arquivo conteúdo do previsao_lote.py tem a função montor para processar lista de clientes e retornar previsões com interpretabilidade:
-
-```
-import pandas as pd
-import logging
-
-def fazer_previsao_lote(lista_clientes, modelo_pipeline):
-    """
-    Recebe uma lista de dicionários (clientes) e o pipeline do modelo.
-    Retorna uma lista de dicionários com as previsões e as 3 features mais relevantes.
-    """
-    try:
-        df_novos = pd.DataFrame(lista_clientes)
-        prob_churn = modelo_pipeline.predict_proba(df_novos)[:, 1]
-        contributions = modelo_pipeline.predict_proba(df_novos)  # exemplo simplificado
-
-        feature_names_out = df_novos.columns
-        resultados = []
-
-        for i in range(len(df_novos)):
-            contrib_cliente = contributions[i]
-            feat_contrib = pd.Series(contrib_cliente, index=feature_names_out)
-
-            top_3 = feat_contrib.abs().sort_values(ascending=False).head(3).index.tolist()
-            top_3_clean = [f.split('__')[-1] for f in top_3]
-
-            resultados.append({
-                'cliente_id': df_novos.iloc[i].get('cliente_id', f'cliente_{i}'),
-                'probabilidade_churn': round(prob_churn[i], 4),
-                'risco': 'ALTO' if prob_churn[i] >= 0.5 else 'BAIXO',
-                '1_mais_relevante': top_3_clean[0] if len(top_3_clean) > 0 else None,
-                '2_mais_relevante': top_3_clean[1] if len(top_3_clean) > 1 else None,
-                '3_mais_relevante': top_3_clean[2] if len(top_3_clean) > 2 else None
-            })
-
-        logging.info("Resultados da previsão em lote gerados com sucesso.")
-        return resultados
-
-    except Exception as e:
-        logging.error(f"Erro na função fazer_previsao_lote: {e}")
-        return []
-
-
-```
-
 
 ---
 
 ## 📡 Exemplos de Requisição e Resposta (JSON)
 
 ### Requisição
-
-
-modelo de JSON para teste no docker :
 
 {
     "nome": "Fulano",
@@ -236,7 +127,7 @@ modelo de JSON para teste no docker :
     "engajamento_por_custo" : "55"
 }
 
-Resposta do Json: 
+Resposta do JSON: 
 
 {
   "probabilidade_churn": 0.7768,
@@ -247,115 +138,18 @@ Resposta do Json:
 }
 
 ```
-▶️ Como executar Backend Java (H2): 
-
-• 	Pré-requisitos:
-
-• 	JDK: Temurin/OpenJDK 17
-
-• 	Build: Maven 3.9+
-
-• 	Banco: H2 embutido (dev)
-
-• 	Configuração H2 (application.properties)
 
 
 ```
-spring.datasource.url=jdbc:h2:mem:continuumdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
-spring.datasource.driverClassName=org.h2.Driver
-spring.datasource.username=sa
-spring.datasource.password=
-spring.jpa.hibernate.ddl-auto=update
-spring.h2.console.enabled=true
-spring.h2.console.path=/h2-console
-```
+##🚀 Visão Geral
 
-DTO de entrada
+Este backend Java utiliza Spring Boot com banco H2 embutido para ambiente de desenvolvimento.
+O H2 é um banco relacional leve, que roda em memória ou em arquivo, ideal para testes rápidos sem necessidade de instalação externa.
 
-Use o DTO para validar e mapear os campos recebidos pela API Java. Ele suporta aliases compatíveis com o pipeline do modelo.
-
-```
-package com.hackathon.continuum.dto;
-
-import com.fasterxml.jackson.annotation.JsonAlias;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import jakarta.validation.constraints.*;
-
-import java.time.LocalDate;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-public record EntradaDTO(
-    @NotNull @Min(0) @Max(10) @JsonAlias("num__nps_score") Integer nps_score,
-    @NotNull @PositiveOrZero @JsonAlias("num__tempo_contrato_meses") Double tempo_contrato_meses,
-    @NotBlank @JsonAlias("num__tentou_cancelar_antes") String tentou_cancelar_antes,
-    @NotNull @Positive @JsonAlias("num__valor_mensal") Double valor_mensal,
-    @NotNull @PositiveOrZero @JsonAlias("num__atrasos_pagamento_12m") Integer atrasos_pagamento_12m,
-    @NotNull @Positive @JsonAlias("num__duracao_media_treino_min") Integer duracao_media_treino_min,
-    @NotNull @PositiveOrZero @JsonAlias("num__engajamento_por_custo") Double engajamento_por_custo,
-    @NotBlank @JsonAlias("num__reducao_frequencia_3m") String reducao_frequencia_3m,
-    @NotNull @PositiveOrZero @JsonAlias("num__frequencia_mensal") Integer frequencia_mensal,
-    @NotBlank @JsonAlias("num__tem_personal_trainer") String tem_personal_trainer,
-    @Positive @JsonAlias("num__numero_reclamacoes") Integer numero_reclamacoes,
-    @JsonAlias("num__participa_aulas_coletivas") String participa_aulas_coletivas,
-    @JsonAlias("num__participou_eventos") String participou_eventos,
-    @JsonAlias("num__uso_app_academia") String uso_app_academia,
-    @JsonAlias("cat__forma_pagamento") String forma_pagamento,
-    @JsonAlias("teve_desconto_promocao") String teve_desconto_promocao,
-    @JsonAlias("tipo_plano") String tipo_plano,
-    @JsonAlias("genero") String genero,
-    @Positive @JsonAlias("idade") Integer idade,
-    @JsonAlias("data_inicio_contrato") LocalDate data_inicio_contrato,
-    @Positive @JsonAlias("dias_desde_ultimo_acesso") Integer dias_desde_ultimo_acesso,
-    @JsonAlias("churn") String churn
-) {}
-```
-
-Entidade AnalizeChurn (H2)
-
-```
-package com.hackathon.continuum.entity;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "analize_churn")
-public class AnalizeChurn {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cliente_id;
-
-    @Column private String nome;
-
-    @Column private Integer nps_score;
-    @Column private Double tempo_contrato_meses;
-    @Column private String tentou_cancelar_antes;
-    @Column private Double valor_mensal;
-    @Column private Integer atrasos_pagamento_12m;
-    @Column private Integer duracao_media_treino_min;
-    @Column private Double engajamento_por_custo;
-    @Column private String reducao_frequencia_3m;
-    @Column private Integer frequencia_mensal;
-    @Column private String tem_personal_trainer;
-    @Column private Integer numero_reclamacoes;
-    @Column private String participa_aulas_coletivas;
-    @Column private String participou_eventos;
-    @Column private String uso_app_academia;
-    @Column private String forma_pagamento;
-    @Column private String teve_desconto_promocao;
-    @Column private String tipo_plano;
-    @Column private LocalDate data_inicio_contrato;
-    @Column private Integer dias_desde_ultimo_acesso;
-    @Column private Double churn;
-
-    @Column private LocalDateTime criacao_data_hora;
-}
-
-```
+📂 Pré-requisitos
+• 	☕ JDK: Temurin ou OpenJDK 
+• 	🛠️ Maven: para build e execução
+• 	🗄️ Banco: H2 embutido (não precisa instalar nada)
 
 ---
 
