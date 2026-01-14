@@ -466,6 +466,10 @@ Após subir o container, você pode testar no navegador ou via ferramentas como 
 
 ```bash
  http://localhost:8080/predict
+
+Endpoint :
+
+http://localhost:8080/analises-churn
 ```
 
 ---
