@@ -46,10 +46,6 @@ public record EntradaDTO(
     @JsonAlias("num__duracao_media_treino_min")
     Integer duracao_media_treino_min,
 
-    // Engajamento do cliente em relação ao custo (ex: índice numérico)
-    @JsonAlias("num__engajamento_por_custo")
-    Double engajamento_por_custo,
-
     // Indica se houve redução de frequência nos últimos 3 meses
     @NotBlank(message = "A informação sobre redução de frequência é obrigatória")
     @JsonAlias("num__reducao_frequencia_3m")
@@ -68,7 +64,6 @@ public record EntradaDTO(
 
     // --- Novos atributos opcionais --- 
     @PositiveOrZero(message = "O número de reclamações não pode ser negativa")
-    @Positive(message = "O número de reclamações deve ser positivo") 
     @JsonAlias("num__numero_reclamacoes") 
     Integer numero_reclamacoes, 
     
