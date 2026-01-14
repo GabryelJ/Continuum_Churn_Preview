@@ -47,10 +47,10 @@ public record EntradaModeloDTO(
         Integer duracao_media_treino_min,
 
         // Engajamento do cliente em relação ao custo (ex: índice numérico)
-        @NotNull(message = "O engajamento por custo é obrigatório")
-        @PositiveOrZero(message = "O engajamento por custo não pode ser negativo")
-        @JsonAlias("num__engajamento_por_custo")
-        Double engajamento_por_custo,
+        //@NotNull(message = "O engajamento por custo é obrigatório")
+        //@PositiveOrZero(message = "O engajamento por custo não pode ser negativo")
+        //@JsonAlias("num__engajamento_por_custo")
+        //Double engajamento_por_custo,
 
         // Indica se houve redução de frequência nos últimos 3 meses
         @NotBlank(message = "A informação sobre redução de frequência é obrigatória")
@@ -69,7 +69,8 @@ public record EntradaModeloDTO(
         String tem_personal_trainer,
 
         // --- Novos atributos opcionais ---
-        @Positive(message = "O número de reclamações deve ser positivo")
+        //@Positive(message = "O número de reclamações deve ser positivo")
+        @PositiveOrZero(message = "O número de reclamações não pode ser negativa")
         @JsonAlias("num__numero_reclamacoes")
         Integer numero_reclamacoes,
 
