@@ -99,13 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /* ===============================
-     CARREGA RELATÓRIOS AO ABRIR
-  =============================== */
-  carregarRelatorioAnalises();
-  carregarRelatorioAtributos();
-});
-
 /* ===============================
    RELATÓRIO 1 – LISTA DE ANÁLISES
 ================================ */
@@ -153,8 +146,38 @@ async function carregarRelatorioAtributos() {
 }
 
 /* ===============================
-   CSV (futuro)
+   CSV
 ================================ */
-function enviarCSV() {
-  alert("Envio em lote será integrado com o backend");
+async function enviarCSV() {
+  const input = document.getElementById("csvFile");
+
+  if (!input.files.length) {
+    alert("Selecione um arquivo CSV");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("file", input.files[0]);
+
+  try {
+    const response = await fetch("/predict/csv", {
+      method: "POST",
+      body: formData
+    });
+
+    if (!response.ok) {
+      throw new Error("Erro ao enviar CSV");
+    }
+
+    alert("Arquivo CSV enviado com sucesso!");
+    
+    // Atualiza relatórios após processamento
+    await carregarRelatorioAnalises();
+    await carregarRelatorioAtributos();
+
+  } catch (error) {
+    console.error(error);
+    alert("Erro ao processar o CSV");
+  }
 }
+
