@@ -89,8 +89,11 @@ Essa integração permitirá que o negócio aja antes que o cliente decida sair,
 
 Este projeto disponibiliza uma API em Flask que carrega um modelo de Machine Learning previamente treinado e salvo (Churn_Academia_V15.ipynb).
 A API recebe dados de clientes em formato JSON e retorna:
+
 • 	Probabilidade de churn
+
 • 	Classificação de risco (ALTO/BAIXO)
+
 • 	As 3 features mais relevantes para a previsão
 
 ```
@@ -140,7 +143,7 @@ Resposta do JSON:
 ```
 
 
-```
+---
 ##🚀 Visão Geral
 
 Este backend Java utiliza Spring Boot com banco H2 embutido para ambiente de desenvolvimento.
