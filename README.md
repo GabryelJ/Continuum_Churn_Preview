@@ -445,16 +445,52 @@ dash==2.14.0
 
 ### Construção e execução
 ```bash
-docker build -t continuum-api
 
-docker run -d -p 8000:8000 continuum-api
-
-na raiz do arquivo docker compose up --bulid
+na raiz do arquivo executar no terminal brandi docker o comando: ''docker compose up --bulid''
  
-para fazer teste no docker http://localhost:8080/predict
+para fazer teste no Vscodel docker http://localhost:8080/predict
+
+Aqui está uma versão melhorada e organizada do seu **README** com base nas instruções que você passou. Estruturei em seções claras para facilitar a leitura e uso:
+
+---
+
+## 📦 Executando com Docker
+
+### 1. Rodar diretamente com `docker run`
+```bash
+docker run -d -p 8000:8000 continuum-api
+```
+---
+
+### 2. Rodar com `docker compose`
+Na raiz do projeto, execute no terminal:
+```bash
+docker compose up --build
+```
+
+
+---
+
+## 🧪 Testando a API
+
+Após subir o container, você pode testar no navegador ou via ferramentas como **VSCode REST Client**, **Postman** ou **cURL**:
+
+```bash
+ http://localhost:8080/predict
 ```
 
 ---
+
+## ✅ Dicas
+
+- Certifique-se de que o **Docker Desktop** ou serviço equivalente esteja rodando.
+- Caso queira alterar portas, ajuste o `docker-compose.yml`.
+- Para parar os containers:
+```bash
+docker compose down
+```
+---
+
 
 ## 📌 Observações
      
