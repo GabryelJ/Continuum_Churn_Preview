@@ -26,8 +26,8 @@ public class AnaliseChurn {
     private Integer atrasosPagamento12m;
     @Column(name = "duracao_media_treino_min")
     private Integer duracaoMediaTreinoMin;
-    @Column(name = "engajamento_por_custo")
-    private Double engajamentoPorCusto;
+    //@Column(name = "engajamento_por_custo")
+    //private Double engajamentoPorCusto;
     @Column(name = "reducao_frequencia_3m")
     private String reducaoFrequencia3m;
     @Column(name = "frequencia_mensal")
@@ -134,13 +134,13 @@ public class AnaliseChurn {
         this.duracaoMediaTreinoMin = duracaoMediaTreinoMin;
     }
 
-    public Double getEngajamentoPorCusto() {
+    /*public Double getEngajamentoPorCusto() {
         return engajamentoPorCusto;
     }
 
     public void setEngajamentoPorCusto(Double engajamentoPorCusto) {
         this.engajamentoPorCusto = engajamentoPorCusto;
-    }
+    }*/
 
     public String getReducaoFrequencia3m() {
         return reducaoFrequencia3m;

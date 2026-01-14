@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
-
     erroMsg.textContent = "";
 
+    // Validação básica
     const campos = form.querySelectorAll("input[required], select[required]");
     let valido = true;
 
@@ -49,6 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
     =============================== */
     const payload = {
       nome: document.getElementById("nome").value,
+      idade: document.getElementById("idade").value,
+      genero: document.getElementById("genero").value,
       tipo_plano: document.getElementById("tipo_plano").value,
       forma_pagamento: document.getElementById("forma_pagamento").value,
       data_inicio_contrato: document.getElementById("data_inicio_contrato").value,
@@ -66,8 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       numero_reclamacoes: Number(document.getElementById("numero_reclamacoes").value),
       tentou_cancelar_antes: document.getElementById("tentou_cancelar_antes").value,
       reducao_frequencia_3m: document.getElementById("reducao_frequencia_3m").value,
-      teve_desconto_promocao: document.getElementById("teve_desconto_promocao").value,
-      churn: document.getElementById("churn").value
+      teve_desconto_promocao: document.getElementById("teve_desconto_promocao").value
     };
 
     /* ===============================
@@ -84,20 +85,13 @@ document.addEventListener("DOMContentLoaded", () => {
         throw new Error("Erro ao processar a predição");
       }
 
-      const data = await response.json();
+      // Recarrega os relatórios após salvar tudo no backend
+      await carregarRelatorioAnalises();
+      await carregarRelatorioAtributos();
 
-      document.getElementById("probabilidade").textContent =
-        (data.probabilidade_churn * 100).toFixed(2) + "%";
-
-      document.getElementById("risco").textContent = data.risco;
-
-      const lista = document.getElementById("relevantes");
-      lista.innerHTML = "";
-      lista.innerHTML += `<li>${data.primeiro_mais_relevante}</li>`;
-      lista.innerHTML += `<li>${data.segundo_mais_relevante}</li>`;
-      lista.innerHTML += `<li>${data.terceiro_mais_relevante}</li>`;
-
-      adicionarDashboard(payload.nome, data.probabilidade_churn, data.risco);
+      // Limpa e fecha formulário
+      form.reset();
+      toggleBtn.click();
 
     } catch (error) {
       erroMsg.textContent = "Erro ao comunicar com o servidor";
@@ -105,24 +99,62 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  /* ===============================
+     CARREGA RELATÓRIOS AO ABRIR
+  =============================== */
+  carregarRelatorioAnalises();
+  carregarRelatorioAtributos();
 });
 
 /* ===============================
-   DASHBOARD
+   RELATÓRIO 1 – LISTA DE ANÁLISES
 ================================ */
-function adicionarDashboard(nome, prob, risco) {
-  const tabela = document.getElementById("dashboard");
-  const tr = document.createElement("tr");
+async function carregarRelatorioAnalises() {
+  const response = await fetch("/analises-churn/relatorios/analises");
+  const dados = await response.json();
 
-  tr.innerHTML = `
-    <td>${nome}</td>
-    <td>${(prob * 100).toFixed(2)}%</td>
-    <td>${risco}</td>
-  `;
+  const tbody = document.getElementById("tabela-analises");
+  tbody.innerHTML = "";
 
-  tabela.appendChild(tr);
+  dados.forEach(item => {
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td>${item.nomeCliente}</td>
+      <td>${(item.probabilidadeChurn * 100).toFixed(2)}%</td>
+      <td>${item.risco}</td>
+      <td>${item.acaoRetencao}</td>
+    `;
+
+    tbody.appendChild(tr);
+  });
 }
 
+/* ===============================
+   RELATÓRIO 2 – ATRIBUTOS + CONTAGEM
+================================ */
+async function carregarRelatorioAtributos() {
+  const response = await fetch("/analises-churn/relatorios/atributos");
+  const dados = await response.json();
+
+  const tbody = document.getElementById("tabela-atributos");
+  tbody.innerHTML = "";
+
+  dados.forEach(item => {
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td>${item.atributo}</td>
+      <td>${item.quantidade}</td>
+    `;
+
+    tbody.appendChild(tr);
+  });
+}
+
+/* ===============================
+   CSV (futuro)
+================================ */
 function enviarCSV() {
   alert("Envio em lote será integrado com o backend");
 }

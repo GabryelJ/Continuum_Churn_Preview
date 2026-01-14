@@ -26,7 +26,7 @@ public class AnaliseChurnService {
         analise.setValorMensal(dto.valor_mensal());
         analise.setAtrasosPagamento12m(dto.atrasos_pagamento_12m());
         analise.setDuracaoMediaTreinoMin(dto.duracao_media_treino_min());
-        analise.setEngajamentoPorCusto(dto.engajamento_por_custo());
+        //analise.setEngajamentoPorCusto(dto.engajamento_por_custo());
         analise.setReducaoFrequencia3m(dto.reducao_frequencia_3m());
         analise.setFrequenciaMensal(dto.frequencia_mensal());
         analise.setTemPersonalTrainer(dto.tem_personal_trainer());
