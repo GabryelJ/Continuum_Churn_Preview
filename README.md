@@ -443,18 +443,7 @@ streamlit==1.27.0
 dash==2.14.0
 ```
 
-### Construção e execução
-```bash
-
-na raiz do arquivo executar no terminal brandi docker o comando: ''docker compose up --bulid''
- 
-para fazer teste no Vscodel docker http://localhost:8080/predict
-
-Aqui está uma versão melhorada e organizada do seu **README** com base nas instruções que você passou. Estruturei em seções claras para facilitar a leitura e uso:
-
----
-
-## 📦 Executando com Docker
+### 📦 Executando com Docker
 
 ### 1. Rodar diretamente com `docker run`
 ```bash
