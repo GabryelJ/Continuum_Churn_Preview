@@ -33,9 +33,7 @@ Essa integração permitirá que o negócio aja antes que o cliente decida sair,
 ---
 
 ## 🚀 Objetivos
-
-- **Refatoração de Código** → Melhorar legibilidade, modularidade e eficiência.  
-- **Testes Automatizados** → Implementar testes unitários e de integração.  
+ 
 - **Performance e Escalabilidade** → Otimizar processos e arquitetura para maior volume de dados e usuários.  
 - **Interface e UX/UI** → Aprimorar design e usabilidade.  
 - **Segurança** → Adotar boas práticas de proteção de dados.  
