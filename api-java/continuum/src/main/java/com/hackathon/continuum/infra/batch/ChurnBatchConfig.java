@@ -34,7 +34,7 @@ public class ChurnBatchConfig {
                 .delimited()
                 // A ordem aqui DEVE ser exatamente a mesma do seu arquivo CSV
                 .names("nome", "nps_score", "tempo_contrato_meses", "tentou_cancelar_antes", "valor_mensal",
-                        "atrasos_pagamento_12m", "duracao_media_treino_min", "engajamento_por_custo",
+                        "atrasos_pagamento_12m", "duracao_media_treino_min",
                         "reducao_frequencia_3m", "frequencia_mensal", "tem_personal_trainer",
                         "numero_reclamacoes", "participa_aulas_coletivas", "participou_eventos",
                         "uso_app_academia", "forma_pagamento", "teve_desconto_promocao",
@@ -56,7 +56,6 @@ public class ChurnBatchConfig {
                             fieldSet.readDouble("valor_mensal"),
                             fieldSet.readInt("atrasos_pagamento_12m"),
                             fieldSet.readInt("duracao_media_treino_min"),
-                            fieldSet.readDouble("engajamento_por_custo"),
                             fieldSet.readString("reducao_frequencia_3m"),
                             fieldSet.readInt("frequencia_mensal"),
                             fieldSet.readString("tem_personal_trainer"),
