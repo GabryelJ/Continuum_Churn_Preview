@@ -93,11 +93,6 @@
           </div>
 
           <div class="form-group">
-            <label>Engajamento por Custo*</label>
-            <input type="number" step="0.01" id="engajamento_por_custo" required />
-          </div>
-
-          <div class="form-group">
             <label>Dias Desde Último Acesso</label>
             <input type="number" id="dias_desde_ultimo_acesso" />
           </div>
@@ -206,7 +201,11 @@
   <!-- UPLOAD CSV -->
   <section class="card">
     <h2>📂 Envio em Lote (.CSV)</h2>
-    <input type="file" id="csvFile" accept=".csv" />
+      <input 
+        type="file" 
+        id="csvFile" 
+        accept=".csv"
+      />
     <button type="button" onclick="enviarCSV()">⬆️ Enviar arquivo</button>
   </section>
 
