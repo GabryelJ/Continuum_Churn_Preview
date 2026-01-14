@@ -58,14 +58,14 @@ Essa integração permitirá que o negócio aja antes que o cliente decida sair,
 
 ## ⚙️ Tecnologias e Ferramentas
 
-- **Python 3.10+** (microserviço e APIs)  
-- **Machine Learning** → scikit-learn (1.3.0), pandas (2.1.0), numpy (1.25.0)  
+- **Python ** (microserviço e APIs)  
+- **Machine Learning** → scikit-learn , pandas , numpy 
 - **Banco de Dados H2** (persistência leve e integrada)  
-- **Docker** (24.0+) para containerização e deploy  
-- **Frameworks de API** → FastAPI (0.103.0) ou Flask (2.3.0)  
-- **Dashboard** → Streamlit (1.27.0) ou Dash (2.14.0)  
-- **Joblib** (1.3.2) para serialização de modelos  
-
+- **Docker**  para containerização e deploy  
+- **Frameworks de API** → Flask 
+- **Dashboard** → Streamlit ou Dash  
+- **Joblib**  para serialização de modelos  
+- **Dashboard** : HTML , CSS e JavaScript
 ---
 
 ## 📈 Entregáveis do Projeto:
@@ -99,12 +99,12 @@ joblib.dump(modelo_rf_otimizado, "modelo_pipeline_completo.pkl")
 
 ```
 
-🔗 API Python (FastAPI) e integração com o modelo (Python):
+🔗 API Python (Flask) e integração com o modelo (Python):
 
 
 ```
 python
-from fastapi import FastAPI
+from fastapi import Flask
 import json
 
 import joblib
@@ -206,74 +206,7 @@ def fazer_previsao_lote(lista_clientes, modelo_pipeline):
 ## 📡 Exemplos de Requisição e Resposta (JSON)
 
 ### Requisição
-```json
-POST /predict
-Content-Type: application/json
 
-{
-        "VALORES_PADRAO": {
-          "teve_desconto_promocao": "0",
-          "usa_app_academia": "0",
-          "faixa_etaria": "30",
-          "forma_pagamento": "Boleto",
-          "tipo_plano": "Básico",
-          "genero": "M",
-          "participa_aulas_coletivas": "0",
-          "participou_eventos": "0",
-          "risco_inatividade": "0",
-          "faixa_fidelidade": "0",
-          "numero_reclamacoes": "0"
-        },
-        "PORTA": 5000
-}
-
-
-[
-  {
-    "cliente_id": "CLI_RISCO_1",
-    "nps_score": 2,
-    "tempo_contrato_meses": 3,
-    "valor_mensal": 89.90,
-    "frequencia_mensal": 3,
-    "duracao_media_treino_min": 40,
-    "tem_personal_trainer": 0,
-    "atrasos_pagamento_12m": 1,
-    "reducao_frequencia_3m": 1
-  },
-  {
-    "cliente_id": "CLI_SEGURO_2",
-    "nps_score": 10,
-    "tempo_contrato_meses": 55,
-    "valor_mensal": 299.90,
-    "frequencia_mensal": 18,
-    "duracao_media_treino_min": 95,
-    "tem_personal_trainer": 1,
-    "atrasos_pagamento_12m": 0,
-    "reducao_frequencia_3m": 0
-  }
-]
-
-
-Resposta esperada
-{
-  "resultados": [
-    {
-      "cliente_id": "CLI_RISCO_1",
-      "probabilidade_churn": 0.72,
-      "risco": "ALTO",
-      "1_mais_relevante": "nps_score",
-      "2_mais_relevante": "reducao_frequencia_3m",
-      "3_mais_relevante": "atrasos_pagamento_12m"
-    },
-    {
-      "cliente_id": "CLI_SEGURO_2",
-      "probabilidade_churn": 0.12,
-      "risco": "BAIXO",
-      "1_mais_relevante": "frequencia_mensal",
-      "2_mais_relevante": "tem_personal_trainer",
-      "3_mais_relevante": "nps_score"
-    }
-  ]
 
 modelo de JSON para teste no docker :
 
@@ -301,6 +234,16 @@ modelo de JSON para teste no docker :
     "dias_desde_ultimo_acesso": 20.0,
     "tentou_cancelar_antes": 1,
     "engajamento_por_custo" : "55"
+}
+
+Resposta do Json: 
+
+{
+  "probabilidade_churn": 0.7768,
+  "risco": "ALTO",
+  "primeiro_mais_relevante": "tentou_cancelar_antes",
+  "segundo_mais_relevante": "nps_score",
+  "terceiro_mais_relevante": "frequencia_mensal"
 }
 
 ```
@@ -445,8 +388,7 @@ dash==2.14.0
 
 ### 1. Rodar diretamente com `docker run`
 ```bash
-docker run -d -p 8000:8000 continuum-api
-```
+docker run -d -p 8000:8000 continuum-
 ---
 
 ### 2. Rodar com `docker compose`
@@ -463,8 +405,6 @@ docker compose up --build
 Após subir o container, você pode testar no navegador ou via ferramentas como **VSCode REST Client**, **Postman** ou **cURL**:
 
 ```bash
- http://localhost:8080/predict
-
 Endpoint :
 
 http://localhost:8080/analises-churn
@@ -491,7 +431,7 @@ docker compose down
 
 >  Lead-in de dados: Os aliases no DTO (JsonAlias) estão alinhados ao pipeline do modelo, facilitando integração direta.
 
-> H2 em dev: Ideal para demonstração e testes rápidos. Em produção, migre para banco gerenciado.]Interpretabilidade: As três features mais relevantes por cliente ajudam ações de retenção (marketing e suporte) de forma objetiva.
+> H2 em dev: Ideal para demonstração e testes rápidos. Em produção, migre para banco gerenciado.Interpretabilidade: As três features mais relevantes por cliente ajudam ações de retenção (marketing e suporte) de forma objetiva.
 
 > Evolução: O projeto é modular e preparado para escalar, incluindo troca de modelo, novas variáveis e integração com serviços externos.
 
