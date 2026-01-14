@@ -56,19 +56,18 @@ document.addEventListener("DOMContentLoaded", () => {
       data_inicio_contrato: document.getElementById("data_inicio_contrato").value,
       frequencia_mensal: Number(document.getElementById("frequencia_mensal").value),
       duracao_media_treino_min: Number(document.getElementById("duracao_media_treino_min").value),
-      engajamento_por_custo: Number(document.getElementById("engajamento_por_custo").value),
       dias_desde_ultimo_acesso: Number(document.getElementById("dias_desde_ultimo_acesso").value),
-      participa_aulas_coletivas: document.getElementById("participa_aulas_coletivas").value,
-      tem_personal_trainer: document.getElementById("tem_personal_trainer").value,
-      participou_eventos: document.getElementById("participou_eventos").value,
-      uso_app_academia: document.getElementById("uso_app_academia").value,
+      participa_aulas_coletivas: simNaoParaNumero(document.getElementById("participa_aulas_coletivas").value),
+      tem_personal_trainer: simNaoParaNumero(document.getElementById("tem_personal_trainer").value),
+      participou_eventos: simNaoParaNumero(document.getElementById("participou_eventos").value),
+      uso_app_academia: simNaoParaNumero(document.getElementById("uso_app_academia").value),
       valor_mensal: Number(document.getElementById("valor_mensal").value),
       atrasos_pagamento_12m: Number(document.getElementById("atrasos_pagamento_12m").value),
       nps_score: Number(document.getElementById("nps_score").value),
       numero_reclamacoes: Number(document.getElementById("numero_reclamacoes").value),
-      tentou_cancelar_antes: document.getElementById("tentou_cancelar_antes").value,
-      reducao_frequencia_3m: document.getElementById("reducao_frequencia_3m").value,
-      teve_desconto_promocao: document.getElementById("teve_desconto_promocao").value
+      tentou_cancelar_antes: simNaoParaNumero(document.getElementById("tentou_cancelar_antes").value),
+      reducao_frequencia_3m: simNaoParaNumero(document.getElementById("reducao_frequencia_3m").value),
+      teve_desconto_promocao: simNaoParaNumero(document.getElementById("teve_desconto_promocao").value)
     };
 
     /* ===============================
@@ -179,5 +178,11 @@ async function enviarCSV() {
     console.error(error);
     alert("Erro ao processar o CSV");
   }
+}
+});
+
+function simNaoParaNumero(valor) {
+  if (!valor) return null; // campo opcional
+  return valor.toLowerCase() === "sim" ? 1 : 0;
 }
 

@@ -45,20 +45,20 @@ public class AnaliseChurnController {
     @PostMapping
     public ResponseEntity<RespostaDTO> analisar(@Valid @RequestBody EntradaDTO entradaDTO) {
 
-        // 1️⃣ cria e salva a análise
+        // cria e salva a análise
         AnaliseChurn analise = analiseChurnService.criarAnalise(entradaDTO);
 
-        // 2️⃣ chama a API Python
+        // chama a API Python
         EntradaModeloDTO modeloDTO =
                 new EntradaModeloDTO(entradaDTO, analise.getId().toString(), "1");
 
         RespostaDTO resposta = predictService.predict(modeloDTO);
 
-        // 3️⃣ salva o resultado
+        // salva o resultado
         ResultadoChurn resultado =
                 resultadoChurnService.salvarResultado(analise, resposta);
 
-        // 4️⃣ gera sugestão de retenção
+        // gera sugestão de retenção
         SugestaoRetencaoChurn sugestao =
                 sugestaoService.gerarSugestao(
                         analise,
@@ -66,7 +66,7 @@ public class AnaliseChurnController {
                         resposta.probabilidade_churn()
                 );
 
-        // 5️⃣ retorna resposta ao front
+        // retorna resposta ao front
         return ResponseEntity.ok(resposta);
     }
 }
