@@ -58,7 +58,7 @@ Essa integração permitirá que o negócio aja antes que o cliente decida sair,
 
 ## ⚙️ Tecnologias e Ferramentas
 
-- **Python ** (microserviço e APIs)  
+- **Python** (microserviço e APIs)  
 - **Machine Learning** → scikit-learn , pandas , numpy 
 - **Banco de Dados H2** (persistência leve e integrada)  
 - **Docker**  para containerização e deploy  
