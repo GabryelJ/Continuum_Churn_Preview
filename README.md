@@ -1,4 +1,3 @@
----
 # Organizadores do Hackathon
 
 <div>
@@ -13,7 +12,7 @@
   <img src="https://img.shields.io/badge/No%20Country-000000?style=for-the-badge&logoColor=white">
   
 </div>
----
+
 
 # 📊 Continuum
 ---
