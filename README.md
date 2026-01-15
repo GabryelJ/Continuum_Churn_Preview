@@ -14,17 +14,21 @@
 </div>
 
 
+
 # 📊 Continuum
+
 ---
 O Projeto Continuum propõe uma solução completa para previsão de churn, unindo Data Science e Back-end: o time de DS treina o modelo preditivo e o time de BE expõe previsões via API para que o negócio aja antes que o cliente decida sair. Com base em hábitos de uso e histórico de pagamento, a academia pode identificar clientes com alta probabilidade de evasão e realizar ações de retenção.
 
-Incluímos algumas sugestões de ações de retenção com base no percentual de probabilidade de Churn de casa cliente. Abaixo, seguem alguns exemplos de sugestões com base em cada classificação de probabilidade:
+Incluímos sugestões de ações de retenção baseadas no percentual de probabilidade de churn de cada cliente. Abaixo estão exemplos de recomendações para cada nível de classificação de risco:
 
 - Menor risco de probabilidade de Churn. A sugestão é :  "Contato proativo com o cliente e oferta de upgrade ou desconto."
 
 - Risco médio de Churn. A sugestão é : "Manter comunicação ativa e oferecer benefícios de fidelidade."
 
 - Alta probabilidade de Churn. Sugerimos: "Oferta personalizada e acompanhamento com personal trainer."
+
+---
 
 🎯 Desafio
 
