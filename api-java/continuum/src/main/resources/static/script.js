@@ -102,9 +102,11 @@ document.addEventListener("DOMContentLoaded", () => {
 /* ===============================
    RELATÓRIO 1 – LISTA DE ANÁLISES
 ================================ */
+document.querySelector("#botao-gerar-relatorio").addEventListener("click", carregarRelatorioAnalises);
 async function carregarRelatorioAnalises() {
   const response = await fetch("http://localhost:8080/analises-churn/relatorios/analises");
   const dados = await response.json();
+  console.log("payload recebido:" + JSON.stringify(dados, null, 2));
 
   const tbody = document.getElementById("tabela-analises");
   tbody.innerHTML = "";
