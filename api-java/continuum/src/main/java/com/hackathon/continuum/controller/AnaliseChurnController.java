@@ -1,5 +1,6 @@
 package com.hackathon.continuum.controller;
 
+import com.hackathon.continuum.infra.filtros.LogTrace;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,13 +45,13 @@ public class AnaliseChurnController {
 
     @PostMapping
     public ResponseEntity<RespostaDTO> analisar(@Valid @RequestBody EntradaDTO entradaDTO) {
-
+        String traceId = LogTrace.getTraceId();
         // cria e salva a análise
         AnaliseChurn analise = analiseChurnService.criarAnalise(entradaDTO);
 
         // chama a API Python
         EntradaModeloDTO modeloDTO =
-                new EntradaModeloDTO(entradaDTO, analise.getId().toString(), "1");
+                new EntradaModeloDTO(entradaDTO, traceId, analise.getId().toString());
 
         RespostaDTO resposta = predictService.predict(modeloDTO);
 

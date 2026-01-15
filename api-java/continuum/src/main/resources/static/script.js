@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
    RELATÓRIO 1 – LISTA DE ANÁLISES
 ================================ */
 async function carregarRelatorioAnalises() {
-  const response = await fetch("/analises-churn/relatorios/analises");
+  const response = await fetch("http://localhost:8080/analises-churn/relatorios/analises");
   const dados = await response.json();
 
   const tbody = document.getElementById("tabela-analises");
@@ -127,7 +127,7 @@ async function carregarRelatorioAnalises() {
    RELATÓRIO 2 – ATRIBUTOS + CONTAGEM
 ================================ */
 async function carregarRelatorioAtributos() {
-  const response = await fetch("/analises-churn/relatorios/atributos");
+  const response = await fetch("http://localhost:8080/analises-churn/relatorios/atributos");
   const dados = await response.json();
 
   const tbody = document.getElementById("tabela-atributos");

@@ -19,7 +19,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.io.Resource;
 import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
@@ -32,7 +31,7 @@ public class ChurnBatchConfig {
                 .name("churnItemReader")
                 .resource(new FileSystemResource(pathToFile))
                 .delimited()
-                // A ordem aqui DEVE ser exatamente a mesma do seu arquivo CSV
+                // A ordem das colunas no CSV
                 .names("nome", "nps_score", "tempo_contrato_meses", "tentou_cancelar_antes", "valor_mensal",
                         "atrasos_pagamento_12m", "duracao_media_treino_min",
                         "reducao_frequencia_3m", "frequencia_mensal", "tem_personal_trainer",
@@ -68,7 +67,7 @@ public class ChurnBatchConfig {
                             fieldSet.readString("tipo_plano"),
                             fieldSet.readString("genero"),
                             fieldSet.readInt("idade"),
-                            dataFormatada, // Data convertida corretamente
+                            dataFormatada, // Data convertida
                             fieldSet.readInt("dias_desde_ultimo_acesso")
                     );
                 })
@@ -83,9 +82,8 @@ public class ChurnBatchConfig {
         return new StepBuilder("importStep", jobRepository)
                 .<EntradaDTO, AnaliseChurn>chunk(10, transactionManager) // Processa de 10 em 10
                 .reader(reader(null))
-                .processor(analiseChurnService::criarAnalise) // Usa seu serviço para converter
+                .processor(analiseChurnService::criarAnalise)
                 .writer(items -> items.forEach(item -> {
-                    // Aqui você pode imprimir ou salvar no banco
                     System.out.println("Batch Gravando: " + item.getNome() + item.getGenero());
                 }))
                 .build();
@@ -100,7 +98,6 @@ public class ChurnBatchConfig {
 
     @Bean
     public ItemProcessor<EntradaDTO, AnaliseChurn> processor(AnaliseChurnService service) {
-        // Aqui você usa o seu serviço existente para transformar DTO em Entidade
         return service::criarAnalise; 
     }
 
