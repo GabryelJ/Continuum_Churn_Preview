@@ -82,7 +82,7 @@ Essa integração permitirá que o negócio aja antes que o cliente decida sair,
 
 ---
 
-## ▶️ API de Previsão de Churn
+## ▶️ API Python de Previsão de Churn
 
 
 ## 🚀 Visão Geral
