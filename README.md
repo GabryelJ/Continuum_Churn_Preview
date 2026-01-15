@@ -1,5 +1,6 @@
-# Organizadores do Hackathon
 ---
+# Organizadores do Hackathon
+
 <div>
   <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white">
   
@@ -12,10 +13,10 @@
   <img src="https://img.shields.io/badge/No%20Country-000000?style=for-the-badge&logoColor=white">
   
 </div>
-
 ---
-# 📊 Continuum
 
+# 📊 Continuum
+---
 O Projeto Continuum propõe uma solução completa para previsão de churn, unindo Data Science e Back-end: o time de DS treina o modelo preditivo e o time de BE expõe previsões via API para que o negócio aja antes que o cliente decida sair. Com base em hábitos de uso e histórico de pagamento, a academia pode identificar clientes com alta probabilidade de evasão e realizar ações de retenção.
 
 Incluímos algumas sugestões de ações de retenção com base no percentual de probabilidade de Churn de casa cliente. Abaixo, seguem alguns exemplos de sugestões com base em cada classificação de probabilidade:
