@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
        CHAMADA PARA /predict
     =============================== */
     try {
+      console.log("Enviando payload para predição:", JSON.stringify(payload));
        const response = await fetch("http://localhost:8080/analises-churn", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -91,6 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Limpa e fecha formulário
       form.reset();
+      console.log("Formulário reiniciado.");
       toggleBtn.click();
 
     } catch (error) {
@@ -104,6 +106,8 @@ document.addEventListener("DOMContentLoaded", () => {
 ================================ */
 document.querySelector("#botao-gerar-relatorio").addEventListener("click", carregarRelatorioAnalises);
 async function carregarRelatorioAnalises() {
+  console.log("Gerando relatório de análises...");
+
   const response = await fetch("http://localhost:8080/analises-churn/relatorios/analises");
   const dados = await response.json();
   console.log("payload recebido:" + JSON.stringify(dados, null, 2));
@@ -123,12 +127,14 @@ async function carregarRelatorioAnalises() {
 
     tbody.appendChild(tr);
   });
+  console.log("Relatório de análises carregado com sucesso.");
 }
 
 /* ===============================
    RELATÓRIO 2 – ATRIBUTOS + CONTAGEM
 ================================ */
 async function carregarRelatorioAtributos() {
+  console.log("Gerando relatório de atributos...");
   const response = await fetch("http://localhost:8080/analises-churn/relatorios/atributos");
   const dados = await response.json();
 
@@ -145,6 +151,7 @@ async function carregarRelatorioAtributos() {
 
     tbody.appendChild(tr);
   });
+  console.log("Relatório de atributos carregado com sucesso.");
 }
 
 /* ===============================
