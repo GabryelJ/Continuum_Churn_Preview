@@ -96,14 +96,14 @@ A API recebe dados de clientes em formato JSON e retorna:
 
 • 	As 3 features mais relevantes para a previsão
 
-```
-
 ---
 
 ## 📡 Exemplos de Requisição e Resposta (JSON)
 
 ### Requisição
 
+
+```
 {
     "nome": "Fulano",
     "cliente_id": "CLI_RISCO_1",
@@ -129,9 +129,11 @@ A API recebe dados de clientes em formato JSON e retorna:
     "tentou_cancelar_antes": 1,
     "engajamento_por_custo" : "55"
 }
+```
 
 Resposta do JSON: 
 
+```
 {
   "probabilidade_churn": 0.7768,
   "risco": "ALTO",
