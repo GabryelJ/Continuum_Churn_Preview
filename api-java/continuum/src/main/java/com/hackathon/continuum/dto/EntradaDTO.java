@@ -102,7 +102,7 @@ public record EntradaDTO(
     Integer idade, 
     
     @JsonAlias("data_inicio_contrato")
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     LocalDate data_inicio_contrato, 
     
     @Positive(message = "Os dias desde o último acesso devem ser positivos") 

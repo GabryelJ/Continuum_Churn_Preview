@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
       tipo_plano: document.getElementById("tipo_plano").value,
       forma_pagamento: document.getElementById("forma_pagamento").value,
       data_inicio_contrato: document.getElementById("data_inicio_contrato").value,
+      tempo_contrato_meses: Number(document.getElementById("tempo_contrato_meses").value),
       frequencia_mensal: Number(document.getElementById("frequencia_mensal").value),
       duracao_media_treino_min: Number(document.getElementById("duracao_media_treino_min").value),
       dias_desde_ultimo_acesso: Number(document.getElementById("dias_desde_ultimo_acesso").value),
@@ -74,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
        CHAMADA PARA /predict
     =============================== */
     try {
-      const response = await fetch("/predict", {
+       const response = await fetch("http://localhost:8080/analises-churn", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
