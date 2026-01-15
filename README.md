@@ -223,8 +223,9 @@ http://localhost:8080/analises-churn
 ```bash
 docker compose down
 ```
----
 
+
+---
 
 ## 📌 Observações
      
@@ -232,9 +233,11 @@ docker compose down
 
 > As informações envolvidas são de clientes de uma empresa de Academia, utilizando **base de dados fictícia** para análise.
 
->  Lead-in de dados: Os aliases no DTO (JsonAlias) estão alinhados ao pipeline do modelo, facilitando integração direta.
+> Lead-in de dados: Os aliases no DTO (JsonAlias) estão alinhados ao pipeline do modelo, facilitando integração direta.
 
-> H2 em dev: Ideal para demonstração e testes rápidos. Em produção, migre para banco gerenciado.Interpretabilidade: As três features mais relevantes por cliente ajudam ações de retenção (marketing e suporte) de forma objetiva.
+> H2 em dev: Ideal para demonstração e testes rápidos. Em produção, migre para banco gerenciado.
+
+> Interpretabilidade: As três features mais relevantes por cliente ajudam ações de retenção (marketing e suporte) de forma objetiva.
 
 > Evolução: O projeto é modular e preparado para escalar, incluindo troca de modelo, novas variáveis e integração com serviços externos.
 
