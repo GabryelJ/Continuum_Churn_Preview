@@ -161,7 +161,6 @@ Resposta do JSON:
 
 ```
 
----
 
 ---
 ## 🚀 Visão Geral H2
