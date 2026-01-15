@@ -183,23 +183,13 @@ O H2 é um banco relacional leve, que roda em memória ou em arquivo, ideal para
 
 ### 📦 Executando com Docker
 
-### 1. Rodar diretamente com `docker run`
-
----
-```bash
-docker run -d -p 8000:8000 continuum-
-
-```
----
-
-### 2. Rodar com `docker compose`
+### Rodar com `docker compose`
 
 Na raiz do projeto Brande Docker, execute no terminal:
 
 ```
 docker compose up --build
 ```
-
 
 ---
 
