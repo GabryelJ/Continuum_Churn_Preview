@@ -194,7 +194,7 @@ docker run -d -p 8000:8000 continuum-
 
 ### 2. Rodar com `docker compose`
 
-Na raiz do projeto, execute no terminal:
+Na raiz do projeto Brande Docker, execute no terminal:
 
 ```
 docker compose up --build
@@ -205,7 +205,7 @@ docker compose up --build
 
 ## 🧪 Testando a API
 
-Após subir o container, você pode testar no navegador ou via ferramentas como **VSCode REST Client**:
+Após subir o container, você pode testar no navegador ou via ferramentas como **VSCode REST Client**, **live server**:
 
 ```bash
 http://localhost:8080/analises-churn
