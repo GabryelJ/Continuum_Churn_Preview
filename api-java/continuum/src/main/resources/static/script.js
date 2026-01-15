@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
       participa_aulas_coletivas: simNaoParaNumero(document.getElementById("participa_aulas_coletivas").value),
       tem_personal_trainer: simNaoParaNumero(document.getElementById("tem_personal_trainer").value),
       participou_eventos: simNaoParaNumero(document.getElementById("participou_eventos").value),
-      uso_app_academia: simNaoParaNumero(document.getElementById("uso_app_academia").value),
+      usa_app_academia: simNaoParaNumero(document.getElementById("usa_app_academia").value),
       valor_mensal: Number(document.getElementById("valor_mensal").value),
       atrasos_pagamento_12m: Number(document.getElementById("atrasos_pagamento_12m").value),
       nps_score: Number(document.getElementById("nps_score").value),
