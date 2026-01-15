@@ -1,5 +1,5 @@
 # Organizadores do Hackathon
-
+---
 <div>
   <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white">
   
@@ -12,7 +12,7 @@
   <img src="https://img.shields.io/badge/No%20Country-000000?style=for-the-badge&logoColor=white">
   
 </div>
-
+---
 
 # 📊 Continuum
 
@@ -202,11 +202,9 @@ docker compose up --build
 
 ## 🧪 Testando a API
 
-Após subir o container, você pode testar no navegador ou via ferramentas como **VSCode REST Client**, **Postman** ou **cURL**:
+Após subir o container, você pode testar no navegador ou via ferramentas como **VSCode REST Client**:
 
 ```bash
-Endpoint :
-
 http://localhost:8080/analises-churn
 ```
 
@@ -247,6 +245,7 @@ docker compose down
 # 🙌 Créditos Finais — Projeto Continuum Churn Preview
 
 Este repositório documenta o trabalho desenvolvido pela equipe **Continuum Churn Preview**, dentro da iniciativa **ChurnInsight — Prévia de Cancelamentos de Clientes**.  
+
 O projeto uniu esforços de **Ciência de Dados** e **Back-End** para construir uma solução integrada de previsão de churn, permitindo que empresas ajam de forma preventiva na retenção de clientes.
 
 ---
@@ -285,6 +284,7 @@ O projeto uniu esforços de **Ciência de Dados** e **Back-End** para construir 
 ## 🎯 Reconhecimento
 
 Este projeto é fruto de **colaboração multidisciplinar**, unindo ciência de dados e engenharia de software para entregar uma solução inovadora e sustentável.  
+
 Agradecemos a todos os membros pela dedicação, criatividade e comprometimento em cada etapa do desenvolvimento.
 
 ---
