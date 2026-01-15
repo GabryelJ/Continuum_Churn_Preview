@@ -211,6 +211,10 @@ Após subir o container, você pode testar no navegador ou via ferramentas como 
 http://localhost:8080/analises-churn
 ```
 
+```bash
+http://localhost:8080/index.html
+```
+
 ---
 
 ## ✅ Dicas
