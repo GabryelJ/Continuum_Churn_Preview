@@ -164,39 +164,22 @@ O H2 é um banco relacional leve, que roda em memória ou em arquivo, ideal para
 
 ## 🐳 Instalação Rápida com Docker (opcional para demo)
 
-### Dockerfile
-```dockerfile
-FROM python:3.10-slim
-WORKDIR /app
-COPY requirements.txt .
-COPY . .
-RUN pip install --no-cache-dir -r requirements.txt
-EXPOSE 8000
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
-```
-
-### requirements.txt
-```
-fastapi==0.103.0
-uvicorn==0.23.0
-scikit-learn==1.3.0
-pandas==2.1.0
-numpy==1.25.0
-joblib==1.3.2
-streamlit==1.27.0
-dash==2.14.0
-```
-
 ### 📦 Executando com Docker
 
 ### 1. Rodar diretamente com `docker run`
+
+---
 ```bash
 docker run -d -p 8000:8000 continuum-
+
+```
 ---
 
 ### 2. Rodar com `docker compose`
+
 Na raiz do projeto, execute no terminal:
-```bash
+
+```
 docker compose up --build
 ```
 
@@ -218,12 +201,14 @@ http://localhost:8080/analises-churn
 ## ✅ Dicas
 
 - Certifique-se de que o **Docker Desktop** ou serviço equivalente esteja rodando.
+  
 - Caso queira alterar portas, ajuste o `docker-compose.yml`.
+  
 - Para parar os containers:
+  
 ```bash
 docker compose down
 ```
-
 
 ---
 
