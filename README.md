@@ -141,17 +141,20 @@ Resposta do JSON:
 }
 
 ```
-
+---
 
 ---
-##🚀 Visão Geral
+##🚀 Visão Geral H2
 
 Este backend Java utiliza Spring Boot com banco H2 embutido para ambiente de desenvolvimento.
 O H2 é um banco relacional leve, que roda em memória ou em arquivo, ideal para testes rápidos sem necessidade de instalação externa.
 
-📂 Pré-requisitos
+📂 Pré-requisitos: 
+
 • 	☕ JDK: Temurin ou OpenJDK 
+
 • 	🛠️ Maven: para build e execução
+
 • 	🗄️ Banco: H2 embutido (não precisa instalar nada)
 
 ---
