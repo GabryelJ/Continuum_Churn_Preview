@@ -87,7 +87,7 @@ Essa integração permitirá que o negócio aja antes que o cliente decida sair,
 
 ## 🚀 Visão Geral
 
-Este projeto disponibiliza uma API em Flask que carrega um modelo de Machine Learning previamente treinado e salvo (Churn_Academia_V15.ipynb).
+A API Python realiza a integração com API Java para previsão de churn, com o Flask que carrega um modelo de Machine Learning previamente treinado e salvo (Churn_Academia_V15.ipynb).
 A API recebe dados de clientes em formato JSON e retorna:
 
 • 	Probabilidade de churn
