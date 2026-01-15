@@ -243,8 +243,6 @@ docker compose down
 
 ---
 
----
-
 # 🙌 Créditos Finais — Projeto Continuum Churn Preview
 
 Este repositório documenta o trabalho desenvolvido pela equipe **Continuum Churn Preview**, dentro da iniciativa **ChurnInsight — Prévia de Cancelamentos de Clientes**.  
