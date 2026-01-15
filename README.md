@@ -14,11 +14,11 @@ O Projeto Continuum propõe uma solução completa para previsão de churn, unin
 
 Incluímos algumas sugestões de ações de retenção com base no percentual de probabilidade de Churn de casa cliente. Abaixo, seguem alguns exemplos de sugestões com base em cada classificação de probabilidade:
 
--Menor risco de probabilidade de Churn. A sugestão é :  "Contato proativo com o cliente e oferta de upgrade ou desconto."
+- Menor risco de probabilidade de Churn. A sugestão é :  "Contato proativo com o cliente e oferta de upgrade ou desconto."
 
--Risco médio de Churn. A sugestão é : "Manter comunicação ativa e oferecer benefícios de fidelidade."
+- Risco médio de Churn. A sugestão é : "Manter comunicação ativa e oferecer benefícios de fidelidade."
 
--Alta probabilidade de Churn. Sugerimos: "Oferta personalizada e acompanhamento com personal trainer."
+- Alta probabilidade de Churn. Sugerimos: "Oferta personalizada e acompanhamento com personal trainer."
 
 🎯 Desafio
 
