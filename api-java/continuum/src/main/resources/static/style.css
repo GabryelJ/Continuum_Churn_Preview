@@ -19,10 +19,49 @@ header {
   text-align: center;
 }
 
+/* BIG NUMBERS - CARDS */
+.indicadores-fixos {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #f4f6f8;
+  padding: 16px 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.indicador-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.indicador-card h4 {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.indicador-card span {
+  display: block;
+  margin-top: 8px;
+  font-size: 32px;
+  font-weight: bold;
+  color: #1e88e5;
+}
+
+.indicador-card.alerta span {
+  color: #e53935;
+}
+
 /* CONTEÚDO CENTRAL */
 main {
   padding: 16px;
-  max-width: 1100px;
+  max-width: 1400px;
   margin: auto;
 }
 

@@ -178,37 +178,45 @@ O H2 é um banco relacional leve, que roda em memória ou em arquivo, ideal para
 • 	🗄️ Banco: H2 embutido (não precisa instalar nada)
 
 ---
+# 📊 Estatísticas de Churn
 
+Este serviço expõe um endpoint para consultar estatísticas básicas sobre os avaliados e suas probabilidades de churn.
+
+Big numbers: 
+
+•  Quantidade de avaliados.
+
+• Média de probabilidade entre todos os avaliados 
+
+•  Probabilidade alta (Em percentual, quantos registros tiveram ALTA probabilidade de churn).
+
+---
 ## 🐳 Instalação Rápida com Docker (opcional para demo)
 
 ### 📦 Executando com Docker
 
-### 1. Rodar diretamente com `docker run`
+### Rodar com `docker compose`
 
----
-```bash
-docker run -d -p 8000:8000 continuum-
-
-```
----
-
-### 2. Rodar com `docker compose`
-
-Na raiz do projeto, execute no terminal:
+Na raiz do projeto Brande Docker, execute no terminal:
 
 ```
 docker compose up --build
 ```
 
-
 ---
 
 ## 🧪 Testando a API
 
-Após subir o container, você pode testar no navegador ou via ferramentas como **VSCode REST Client**:
+Após subir o container, você pode testar no navegador ou via ferramentas como **VSCode REST Client**, **live server**:
 
 ```bash
 http://localhost:8080/analises-churn
+```
+
+Para ter acesso pelo navegador usar este caminho:
+
+```bash
+http://localhost:8080/index.html
 ```
 
 ---
@@ -289,3 +297,4 @@ Este projeto é fruto de **colaboração multidisciplinar**, unindo ciência de 
 Agradecemos a todos os membros pela dedicação, criatividade e comprometimento em cada etapa do desenvolvimento.
 
 ---
+

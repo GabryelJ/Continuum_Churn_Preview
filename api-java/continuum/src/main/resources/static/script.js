@@ -123,6 +123,7 @@ async function carregarRelatorioAnalises() {
       <td>${(item.probabilidadeChurn * 100).toFixed(2)}%</td>
       <td>${item.risco}</td>
       <td>${item.acaoRetencao}</td>
+      <td>${item.atributo}</td>
     `;
 
     tbody.appendChild(tr);
@@ -132,7 +133,7 @@ async function carregarRelatorioAnalises() {
 
 /* ===============================
    RELATÓRIO 2 – ATRIBUTOS + CONTAGEM
-================================ */
+================================ 
 async function carregarRelatorioAtributos() {
   console.log("Gerando relatório de atributos...");
   const response = await fetch("http://localhost:8080/analises-churn/relatorios/atributos");
@@ -145,18 +146,19 @@ async function carregarRelatorioAtributos() {
     const tr = document.createElement("tr");
 
     tr.innerHTML = `
+      <td>${item.nomeCliente}</td>
+      <td>${(item.probabilidadeChurn * 100).toFixed(2)}%</td>
       <td>${item.atributo}</td>
-      <td>${item.quantidade}</td>
     `;
 
     tbody.appendChild(tr);
   });
   console.log("Relatório de atributos carregado com sucesso.");
-}
+}*/
 
 /* ===============================
    CSV
-================================ */
+================================ 
 async function enviarCSV() {
   const input = document.getElementById("csvFile");
 
@@ -188,7 +190,7 @@ async function enviarCSV() {
     console.error(error);
     alert("Erro ao processar o CSV");
   }
-}
+}*/
 });
 
 function simNaoParaNumero(valor) {

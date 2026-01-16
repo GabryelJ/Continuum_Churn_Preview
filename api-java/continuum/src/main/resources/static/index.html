@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Continuum</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -14,6 +15,24 @@
 </header>
 
 <main>
+
+  <!-- BIG NUMBERS - CARDS -->
+   <section class="indicadores-fixos">
+      <div class="indicador-card">
+        <h4>Avaliados</h4>
+        <span id="totalAvaliados">0</span>
+      </div>
+
+      <div class="indicador-card">
+        <h4>Média de Churn</h4>
+        <span id="mediaProbabilidade">0%</span>
+      </div>
+
+      <div class="indicador-card alerta">
+        <h4>Alto Risco</h4>
+        <span id="percentualAltoRisco">0%</span>
+      </div>
+  </section>
 
   <!-- FORMULÁRIO -->
   <section class="card">
@@ -76,12 +95,13 @@
             <label>Data de Início do Contrato</label>
             <input type="date" id="data_inicio_contrato" />
           </div>
-        </fieldset>
 
-        <div class="form-group">
-          <label>Tempo Contrato Meses</label>
-          <input type="number" id="tempo_contrato_meses" />
-        </div>
+          <div class="form-group">
+            <label>Tempo Contrato Meses*</label>
+            <input type="number" id="tempo_contrato_meses" />
+          </div>
+
+        </fieldset>
 
         <!-- COMPORTAMENTO -->
         <fieldset>
@@ -203,7 +223,7 @@
     </div>
   </section>
 
-  <!-- UPLOAD CSV -->
+  <!-- UPLOAD CSV 
   <section class="card">
     <h2>📂 Envio em Lote (.CSV)</h2>
       <input 
@@ -212,7 +232,7 @@
         accept=".csv"
       />
     <button type="button" onclick="enviarCSV()">⬆️ Enviar arquivo</button>
-  </section>
+  </section> -->
 
 <!-- ===============================
        RELATÓRIO 1 – ANÁLISES
@@ -227,29 +247,32 @@
           <th>Probabilidade</th>
           <th>Risco</th>
           <th>Ação de Retenção</th>
+          <th>Atributo Relavantes</th>
         </tr>
       </thead>
       <tbody id="tabela-analises"></tbody>
     </table>
+
     <button type="button" id="botao-gerar-relatorio">📟 Gerar Relatório</button>
   </section>
 
   <!-- ===============================
        RELATÓRIO 2 – ATRIBUTOS
-  =============================== -->
+  =============================== 
   <section class="card">
     <h2>📌 Atributos Mais Relevantes</h2>
 
     <table>
       <thead>
         <tr>
+          <th>Cliente</th>
+          <th>Probabilidade</th>
           <th>Atributo</th>
-          <th>Quantidade</th>
         </tr>
       </thead>
       <tbody id="tabela-atributos"></tbody>
     </table>
-  </section>
+  </section> -->
 
 </main>
 

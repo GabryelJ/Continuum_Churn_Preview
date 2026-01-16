@@ -35,11 +35,11 @@ public class SugestaoRetencaoChurnService {
     private String definirAcao(Double probabilidadeChurn) {
 
         if (probabilidadeChurn < 0.4) {
-            return "Manter comunicação ativa e oferecer benefícios de fidelidade";
+            return "Manter comunicação ativa";
         } else if (probabilidadeChurn < 0.7) {
-            return "Contato proativo com o cliente e oferta de upgrade ou desconto";
+            return "Oferta de upgrade ou desconto";
         } else {
-            return "Oferta personalizada e acompanhamento com personal trainer";
+            return "Oferta personalizada";
         }
 
     }
