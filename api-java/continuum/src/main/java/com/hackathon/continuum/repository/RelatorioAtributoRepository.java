@@ -6,7 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.hackathon.continuum.entity.ResultadoChurn;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface RelatorioAtributoRepository extends JpaRepository<ResultadoChurn, Long> {
 
     @Query("SELECT r.primeiroMaisRelevante FROM ResultadoChurn r")

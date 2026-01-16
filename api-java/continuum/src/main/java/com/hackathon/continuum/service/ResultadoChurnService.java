@@ -32,5 +32,33 @@ public class ResultadoChurnService {
 
         return repository.save(resultado);
     }
+
+    public long obterTotalRegistros() { return repository.count(); }
+
+    public long obterTotalRegistrosComRisco(String risco){
+        return repository.countByRisco(risco.toUpperCase());
+    }
+
+    public double obterTaxaDeClientesComRiscoAltoEmPorcentagem(){
+        long totalRegistros = obterTotalRegistros();
+        long totalRegistrosRiscoAlto = obterTotalRegistrosComRisco("alto");
+
+        if (totalRegistros == 0) {
+            return 0.0;
+        }
+
+        return (double) totalRegistrosRiscoAlto / totalRegistros * 100;
+    }
+
+    public double obterMediaDasTaxasDeRiscoEmPorcentagem(){
+        long totalRegistros = obterTotalRegistros();
+        Double somatorioMedias = repository.somatorioProbabilidadeChurn();
+
+        if (totalRegistros == 0 || somatorioMedias == null) {
+            return 0.0;
+        }
+
+        return somatorioMedias / totalRegistros * 100;
+    }
 }
 

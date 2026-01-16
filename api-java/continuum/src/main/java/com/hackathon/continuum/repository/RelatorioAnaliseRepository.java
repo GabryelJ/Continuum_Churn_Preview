@@ -7,7 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.hackathon.continuum.dto.RelatorioAnaliseDTO;
 import com.hackathon.continuum.entity.SugestaoRetencaoChurn;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface RelatorioAnaliseRepository extends JpaRepository<SugestaoRetencaoChurn, Long>{
 
     @Query("""

@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
        CHAMADA PARA /predict
     =============================== */
     try {
-      console.log("Enviando payload para predição:", JSON.stringify(payload));
+      console.log("Enviando payload para predição:", JSON.stringify(payload, null, 2));
        const response = await fetch("http://localhost:8080/analises-churn", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
