@@ -208,8 +208,8 @@ async function enviarCSV() {
     }
 
     document.getElementById("totalAvaliados").innerHTML = dados["totalAvaliados"];
-    document.getElementById("mediaProbabilidade").innerHTML = String(dados["mediaProbabilidade"]+'%');
-    document.getElementById("percentualAltoRisco").innerHTML = String(dados["percentualAltoRisco"]+'%');
+    document.getElementById("mediaProbabilidade").innerHTML = String(dados["mediaProbabilidade"].toFixed(2)+'%');
+    document.getElementById("percentualAltoRisco").innerHTML = String(dados["percentualAltoRisco"].toFixed(2)+'%');
 
   }
   
