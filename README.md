@@ -28,7 +28,7 @@ Incluímos sugestões de ações de retenção baseadas no percentual de probabi
 
 - Alta probabilidade de Churn. Sugerimos: "Oferta personalizada e acompanhamento com personal trainer."
 
-## Mais detalhes sobre arquitetura do projeto:
+## Mais detalhes sobre o funcionamento de dados:
 
  [Modelo Continuum Preview (PDF)](https://github.com/JoaoVenturini09/Continuum_Churn_Preview/blob/docker/Modelo_Continuum_Preview.pdf)
   
@@ -217,13 +217,13 @@ Após subir o container, você pode testar no navegador ou via ferramentas como 
 http://localhost:8080/analises-churn
 ```
 
-Para ter acesso pelo navegador usar este caminho:
+Para ter acesso pelo navegador usar este caminho para API:
 
 ```bash
 http://localhost:8080/index.html
 ```
 
-Para ter acesso pelo navegador usar este caminho pela OCI:
+Para ter acesso pelo navegador usar este caminho pela OCI para API:
 
 ```bash
 http://140.238.180.36:8080/index.html
