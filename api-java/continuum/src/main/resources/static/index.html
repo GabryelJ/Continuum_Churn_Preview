@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Continuum</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -14,6 +15,24 @@
 </header>
 
 <main>
+
+  <!-- BIG NUMBERS - CARDS -->
+   <section class="indicadores-fixos">
+      <div class="indicador-card">
+        <h4>Avaliados</h4>
+        <span id="totalAvaliados">0</span>
+      </div>
+
+      <div class="indicador-card">
+        <h4>Média de Churn</h4>
+        <span id="mediaProbabilidade">0%</span>
+      </div>
+
+      <div class="indicador-card alerta">
+        <h4>Alto Risco</h4>
+        <span id="percentualAltoRisco">0%</span>
+      </div>
+  </section>
 
   <!-- FORMULÁRIO -->
   <section class="card">
@@ -233,6 +252,7 @@
       </thead>
       <tbody id="tabela-analises"></tbody>
     </table>
+
     <button type="button" id="botao-gerar-relatorio">📟 Gerar Relatório</button>
   </section>
 
