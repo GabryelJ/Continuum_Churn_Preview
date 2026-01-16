@@ -34,14 +34,27 @@ public class SugestaoRetencaoChurnService {
 
     private String definirAcao(Double probabilidadeChurn) {
 
-        if (probabilidadeChurn < 0.4) {
-            return "Manter comunicação ativa";
-        } else if (probabilidadeChurn < 0.7) {
-            return "Oferta de upgrade ou desconto";
-        } else {
-            return "Oferta personalizada";
+        if (probabilidadeChurn == null) {
+            return "Análise indisponível";
         }
 
+        if (probabilidadeChurn < 0.20) {
+            return "Manter relacionamento padrão";
+        }
+
+        if (probabilidadeChurn < 0.40) {
+            return "Comunicação ativa e incentivo ao engajamento";
+        }
+
+        if (probabilidadeChurn < 0.60) {
+            return "Oferta de benefício leve (ex: brinde ou aula extra)";
+        }
+
+        if (probabilidadeChurn < 0.80) {
+            return "Oferta de desconto ou upgrade de plano";
+        }
+
+        return "Ação personalizada com contato direto do time de retenção";
     }
 }
 
