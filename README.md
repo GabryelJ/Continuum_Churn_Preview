@@ -28,8 +28,7 @@ Incluímos sugestões de ações de retenção baseadas no percentual de probabi
 
 - Alta probabilidade de Churn. Sugerimos: "Oferta personalizada e acompanhamento com personal trainer."
 
-## 📄 Documentação
-Mais detalhes sobre arquitetura, variáveis utilizadas e resultados podem ser encontrados no arquivo:
+## Mais detalhes sobre arquitetura do projeto, variáveis utilizadas e resultados podem ser encontrados:
 
  [Modelo Continuum Preview (PDF)](https://github.com/JoaoVenturini09/Continuum_Churn_Preview/blob/docker/Modelo_Continuum_Preview.pdf)
   
