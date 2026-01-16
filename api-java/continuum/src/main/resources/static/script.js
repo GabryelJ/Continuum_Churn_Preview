@@ -88,12 +88,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Recarrega os relatórios após salvar tudo no backend
       await carregarRelatorioAnalises();
-      await carregarRelatorioAtributos();
+      //await carregarRelatorioAtributos();
 
       // Limpa e fecha formulário
       form.reset();
       console.log("Formulário reiniciado.");
       toggleBtn.click();
+
+      await carregarBigNumbers();
 
     } catch (error) {
       erroMsg.textContent = "Erro ao comunicar com o servidor";
@@ -191,6 +193,31 @@ async function enviarCSV() {
     alert("Erro ao processar o CSV");
   }
 }*/
+
+  async function carregarBigNumbers() {
+    console.log("Carregando big numbers");
+    let dados;
+    try{
+      const response = await fetch("http://localhost:8080/stats");
+      dados = await response.json();
+      console.log("payload recebido:" + JSON.stringify(dados, null, 2));
+      console.log("Big number carregados com sucesso");
+    }catch(error){
+      console.error("Falha ao carregar os big numbers: " + error);
+      return;
+    }
+
+    document.getElementById("totalAvaliados").innerHTML = dados["totalAvaliados"];
+    document.getElementById("mediaProbabilidade").innerHTML = String(dados["mediaProbabilidade"]+'%');
+    document.getElementById("percentualAltoRisco").innerHTML = String(dados["percentualAltoRisco"]+'%');
+
+  }
+  
+  window.addEventListener("load", () => {
+   carregarBigNumbers();
+  });
+
+
 });
 
 function simNaoParaNumero(valor) {
