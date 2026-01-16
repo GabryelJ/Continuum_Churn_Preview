@@ -16,7 +16,7 @@
 
 
 
-# ![Continuum](https://github.com/user-attachments/assets/d8419ab3-9338-4d35-9913-1c29d07296f7) Continuum 
+# <img src="https://github.com/user-attachments/assets/d8419ab3-9338-4d35-9913-1c29d07296f7" alt="l" width="150"/> Continuum 
 
 ---
 O Projeto Continuum propõe uma solução completa para previsão de churn, unindo Data Science e Back-end: o time de DS treina o modelo preditivo e o time de BE expõe previsões via API para que o negócio aja antes que o cliente decida sair. Com base em hábitos de uso e histórico de pagamento, a academia pode identificar clientes com alta probabilidade de evasão e realizar ações de retenção.
