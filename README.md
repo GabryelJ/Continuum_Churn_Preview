@@ -223,6 +223,12 @@ Para ter acesso pelo navegador usar este caminho:
 http://localhost:8080/index.html
 ```
 
+Para ter acesso pelo navegador usar este caminho pela OCI:
+
+```bash
+http://140.238.180.36:8080/index.html
+```
+
 ---
 
 ## ✅ Dicas
