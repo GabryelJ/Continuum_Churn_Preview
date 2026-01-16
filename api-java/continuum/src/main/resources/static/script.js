@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     =============================== */
     try {
       console.log("Enviando payload para predição:", JSON.stringify(payload, null, 2));
-       const response = await fetch("http://localhost:8080/analises-churn", {
+       const response = await fetch("/analises-churn", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
@@ -110,7 +110,7 @@ document.querySelector("#botao-gerar-relatorio").addEventListener("click", carre
 async function carregarRelatorioAnalises() {
   console.log("Gerando relatório de análises...");
 
-  const response = await fetch("http://localhost:8080/analises-churn/relatorios/analises");
+  const response = await fetch("/analises-churn/relatorios/analises");
   const dados = await response.json();
   console.log("payload recebido:" + JSON.stringify(dados, null, 2));
 
@@ -138,7 +138,7 @@ async function carregarRelatorioAnalises() {
 ================================ 
 async function carregarRelatorioAtributos() {
   console.log("Gerando relatório de atributos...");
-  const response = await fetch("http://localhost:8080/analises-churn/relatorios/atributos");
+  const response = await fetch("/analises-churn/relatorios/atributos");
   const dados = await response.json();
 
   const tbody = document.getElementById("tabela-atributos");
@@ -198,7 +198,7 @@ async function enviarCSV() {
     console.log("Carregando big numbers");
     let dados;
     try{
-      const response = await fetch("http://localhost:8080/stats");
+      const response = await fetch("/stats");
       dados = await response.json();
       console.log("payload recebido:" + JSON.stringify(dados, null, 2));
       console.log("Big number carregados com sucesso");
