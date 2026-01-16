@@ -13,7 +13,7 @@
   
 </div>
 
-<img src="logo.png" alt="Continuum Logo" width="120"/>
+
 
 
 # 📊 Continuum 
