@@ -12,10 +12,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RelatorioAnaliseRepository extends JpaRepository<SugestaoRetencaoChurn, Long>{
 
-
-public interface RelatorioAnaliseRepository
-        extends JpaRepository<SugestaoRetencaoChurn, Long> {
-@Query("""
+    @Query("""
         SELECT new com.hackathon.continuum.dto.RelatorioAnaliseDTO(
             a.nome,
             r.probabilidadeChurn,
@@ -33,5 +30,4 @@ public interface RelatorioAnaliseRepository
         ORDER BY r.probabilidadeChurn DESC
     """)
     List<RelatorioAnaliseDTO> buscarRelatorioAnalises();
-    }
 }
