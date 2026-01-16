@@ -76,12 +76,13 @@
             <label>Data de Início do Contrato</label>
             <input type="date" id="data_inicio_contrato" />
           </div>
-        </fieldset>
 
-        <div class="form-group">
-          <label>Tempo Contrato Meses</label>
-          <input type="number" id="tempo_contrato_meses" />
-        </div>
+          <div class="form-group">
+            <label>Tempo Contrato Meses*</label>
+            <input type="number" id="tempo_contrato_meses" />
+          </div>
+
+        </fieldset>
 
         <!-- COMPORTAMENTO -->
         <fieldset>
@@ -203,7 +204,7 @@
     </div>
   </section>
 
-  <!-- UPLOAD CSV -->
+  <!-- UPLOAD CSV 
   <section class="card">
     <h2>📂 Envio em Lote (.CSV)</h2>
       <input 
@@ -212,7 +213,7 @@
         accept=".csv"
       />
     <button type="button" onclick="enviarCSV()">⬆️ Enviar arquivo</button>
-  </section>
+  </section> -->
 
 <!-- ===============================
        RELATÓRIO 1 – ANÁLISES
@@ -227,6 +228,7 @@
           <th>Probabilidade</th>
           <th>Risco</th>
           <th>Ação de Retenção</th>
+          <th>Atributo Relavantes</th>
         </tr>
       </thead>
       <tbody id="tabela-analises"></tbody>
@@ -236,20 +238,21 @@
 
   <!-- ===============================
        RELATÓRIO 2 – ATRIBUTOS
-  =============================== -->
+  =============================== 
   <section class="card">
     <h2>📌 Atributos Mais Relevantes</h2>
 
     <table>
       <thead>
         <tr>
+          <th>Cliente</th>
+          <th>Probabilidade</th>
           <th>Atributo</th>
-          <th>Quantidade</th>
         </tr>
       </thead>
       <tbody id="tabela-atributos"></tbody>
     </table>
-  </section>
+  </section> -->
 
 </main>
 

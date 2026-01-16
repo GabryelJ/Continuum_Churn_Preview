@@ -4,7 +4,8 @@ public record RelatorioAnaliseDTO(
     String nomeCliente,
     Double probabilidadeChurn,
     String risco,
-    String acaoRetencao
+    String acaoRetencao,
+    String atributo
 ) {
 
 }
