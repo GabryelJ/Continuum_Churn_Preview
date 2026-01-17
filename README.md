@@ -18,7 +18,13 @@ O Projeto Continuum propõe uma solução completa para previsão de churn, unin
 
 Para cada faixa de probabilidade sugerimos algumas ações de retenção ao cliente. 
 
-Exemplo: para a faixa entre 60% e 80%, sugerimos oferecer um desconto ou upgrade de plano ao cliente.
+Exemplo: 
+
+- Para a faixa entre 0% e 19%, sugerimos manter relacionamento padrão.
+- Para a faixa entre 20% e 39%, sugerimos comunicação ativa e incentivo ao engajamento.
+- Para a faixa entre 40% e 59%, sugerimos oferta de benefício leve (ex: brinde ou aula extra).
+- Para a faixa entre 60% e 79%, sugerimos oferta de desconto ou upgrade de plano.
+- Para a faixa entre 80% e 100%, sugerimos ação personalizada com contato direto do time de retenção.
 
 ## 📊 Detalhes sobre o funcionamento de Dados: [Modelo Continuum Preview (PDF)](https://github.com/JoaoVenturini09/Continuum_Churn_Preview/blob/docker/Modelo_Continuum_Preview.pdf)
 ---
