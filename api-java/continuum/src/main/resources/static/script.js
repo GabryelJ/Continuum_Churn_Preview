@@ -1,0 +1,227 @@
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ===============================
+     CONTROLE DE ABRIR / FECHAR FORM
+  =============================== */
+  const toggleBtn = document.getElementById("toggleFormBtn");
+  const formContainer = document.getElementById("formContainer");
+
+  toggleBtn.addEventListener("click", () => {
+    const fechado = formContainer.classList.contains("form-collapsed");
+
+    formContainer.classList.toggle("form-collapsed", !fechado);
+    formContainer.classList.toggle("form-expanded", fechado);
+
+    toggleBtn.textContent = fechado
+      ? "➖ Fechar Análise"
+      : "➕ Nova Análise";
+  });
+
+  /* ===============================
+     ENVIO DO FORMULÁRIO
+  =============================== */
+  const form = document.getElementById("churnForm");
+  const erroMsg = document.getElementById("formErro");
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    erroMsg.textContent = "";
+
+    // Validação básica
+    const campos = form.querySelectorAll("input[required], select[required]");
+    let valido = true;
+
+    campos.forEach(campo => {
+      campo.classList.remove("campo-erro");
+      if (!campo.value) {
+        campo.classList.add("campo-erro");
+        valido = false;
+      }
+    });
+
+    if (!valido) {
+      erroMsg.textContent = "Preencha todos os campos obrigatórios";
+      return;
+    }
+
+    /* ===============================
+       MONTA JSON PARA BACKEND
+    =============================== */
+    const payload = {
+      nome: document.getElementById("nome").value,
+      idade: document.getElementById("idade").value,
+      genero: document.getElementById("genero").value,
+      tipo_plano: document.getElementById("tipo_plano").value,
+      forma_pagamento: document.getElementById("forma_pagamento").value,
+      data_inicio_contrato: document.getElementById("data_inicio_contrato").value,
+      tempo_contrato_meses: Number(document.getElementById("tempo_contrato_meses").value),
+      frequencia_mensal: Number(document.getElementById("frequencia_mensal").value),
+      duracao_media_treino_min: Number(document.getElementById("duracao_media_treino_min").value),
+      dias_desde_ultimo_acesso: Number(document.getElementById("dias_desde_ultimo_acesso").value),
+      participa_aulas_coletivas: simNaoParaNumero(document.getElementById("participa_aulas_coletivas").value),
+      tem_personal_trainer: simNaoParaNumero(document.getElementById("tem_personal_trainer").value),
+      participou_eventos: simNaoParaNumero(document.getElementById("participou_eventos").value),
+      usa_app_academia: simNaoParaNumero(document.getElementById("usa_app_academia").value),
+      valor_mensal: Number(document.getElementById("valor_mensal").value),
+      atrasos_pagamento_12m: Number(document.getElementById("atrasos_pagamento_12m").value),
+      nps_score: Number(document.getElementById("nps_score").value),
+      numero_reclamacoes: Number(document.getElementById("numero_reclamacoes").value),
+      tentou_cancelar_antes: simNaoParaNumero(document.getElementById("tentou_cancelar_antes").value),
+      reducao_frequencia_3m: simNaoParaNumero(document.getElementById("reducao_frequencia_3m").value),
+      teve_desconto_promocao: simNaoParaNumero(document.getElementById("teve_desconto_promocao").value)
+    };
+
+    /* ===============================
+       CHAMADA PARA /predict
+    =============================== */
+    try {
+      console.log("Enviando payload para predição:", JSON.stringify(payload, null, 2));
+       const response = await fetch("/analises-churn", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        throw new Error("Erro ao processar a predição");
+      }
+
+      // Recarrega os relatórios após salvar tudo no backend
+      await carregarRelatorioAnalises();
+      //await carregarRelatorioAtributos();
+
+      // Limpa e fecha formulário
+      form.reset();
+      console.log("Formulário reiniciado.");
+      toggleBtn.click();
+
+      await carregarBigNumbers();
+
+    } catch (error) {
+      erroMsg.textContent = "Erro ao comunicar com o servidor";
+      console.error(error);
+    }
+  });
+
+/* ===============================
+   RELATÓRIO 1 – LISTA DE ANÁLISES
+================================ */
+document.querySelector("#botao-gerar-relatorio").addEventListener("click", carregarRelatorioAnalises);
+async function carregarRelatorioAnalises() {
+  console.log("Gerando relatório de análises...");
+
+  const response = await fetch("/analises-churn/relatorios/analises");
+  const dados = await response.json();
+  console.log("payload recebido:" + JSON.stringify(dados, null, 2));
+
+  const tbody = document.getElementById("tabela-analises");
+  tbody.innerHTML = "";
+
+  dados.forEach(item => {
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td>${item.nomeCliente}</td>
+      <td>${(item.probabilidadeChurn * 100).toFixed(2)}%</td>
+      <td>${item.risco}</td>
+      <td>${item.acaoRetencao}</td>
+      <td>${item.atributo}</td>
+    `;
+
+    tbody.appendChild(tr);
+  });
+  console.log("Relatório de análises carregado com sucesso.");
+}
+
+/* ===============================
+   RELATÓRIO 2 – ATRIBUTOS + CONTAGEM
+================================ 
+async function carregarRelatorioAtributos() {
+  console.log("Gerando relatório de atributos...");
+  const response = await fetch("/analises-churn/relatorios/atributos");
+  const dados = await response.json();
+
+  const tbody = document.getElementById("tabela-atributos");
+  tbody.innerHTML = "";
+
+  dados.forEach(item => {
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td>${item.nomeCliente}</td>
+      <td>${(item.probabilidadeChurn * 100).toFixed(2)}%</td>
+      <td>${item.atributo}</td>
+    `;
+
+    tbody.appendChild(tr);
+  });
+  console.log("Relatório de atributos carregado com sucesso.");
+}*/
+
+/* ===============================
+   CSV
+================================ 
+async function enviarCSV() {
+  const input = document.getElementById("csvFile");
+
+  if (!input.files.length) {
+    alert("Selecione um arquivo CSV");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("file", input.files[0]);
+
+  try {
+    const response = await fetch("/predict/csv", {
+      method: "POST",
+      body: formData
+    });
+
+    if (!response.ok) {
+      throw new Error("Erro ao enviar CSV");
+    }
+
+    alert("Arquivo CSV enviado com sucesso!");
+    
+    // Atualiza relatórios após processamento
+    await carregarRelatorioAnalises();
+    await carregarRelatorioAtributos();
+
+  } catch (error) {
+    console.error(error);
+    alert("Erro ao processar o CSV");
+  }
+}*/
+
+  async function carregarBigNumbers() {
+    console.log("Carregando big numbers");
+    let dados;
+    try{
+      const response = await fetch("/stats");
+      dados = await response.json();
+      console.log("payload recebido:" + JSON.stringify(dados, null, 2));
+      console.log("Big number carregados com sucesso");
+    }catch(error){
+      console.error("Falha ao carregar os big numbers: " + error);
+      return;
+    }
+
+    document.getElementById("totalAvaliados").innerHTML = dados["totalAvaliados"];
+    document.getElementById("mediaProbabilidade").innerHTML = String(dados["mediaProbabilidade"].toFixed(2)+'%');
+    document.getElementById("percentualAltoRisco").innerHTML = String(dados["percentualAltoRisco"].toFixed(2)+'%');
+
+  }
+  
+  window.addEventListener("load", () => {
+   carregarBigNumbers();
+  });
+
+
+});
+
+function simNaoParaNumero(valor) {
+  if (!valor) return null; // campo opcional
+  return valor.toLowerCase() === "sim" ? 1 : 0;
+}
+
