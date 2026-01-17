@@ -66,14 +66,14 @@ Com isso, a academia pode tomar ações preventivas, oferecendo suporte ou incen
 
 ## ⚙️ Tecnologias e Ferramentas
 
-- **Python** (microserviço e APIs)  
-- **Machine Learning** → scikit-learn , pandas , numpy 
-- **Banco de Dados H2** (persistência leve e integrada)  
-- **Docker**  para containerização e deploy  
-- **Frameworks de API** → Flask 
-- **Dashboard** → Streamlit  
-- **Joblib**  para serialização de modelos  
--  **Front end** HTML , CSS e JavaScript
+- **Python** → (microserviço e APIs)  
+- **Machine Learning** → (scikit-learn , pandas , numpy) 
+- **Banco de Dados H2** → (persistência leve e integrada)  
+- **Docker** → (para containerização e deploy)  
+- **Frameworks de API** → (Flask) 
+- **Dashboard** → (Streamlit)  
+- **Joblib** → (para serialização de modelos)  
+-  **Front end** → (HTML , CSS e JavaScript)
 ---
 
 ## 📈 Entregáveis do Projeto:
