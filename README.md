@@ -1,10 +1,6 @@
 # Organizadores do Hackathon
 
 <div>
-  <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white">
-  
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
-  
   <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white">
   
   <img src="https://img.shields.io/badge/Alura-13294B?style=for-the-badge">
@@ -52,10 +48,10 @@ Essa integração permitirá que o negócio aja antes que o cliente decida sair,
 
 ## 🚀 Objetivos
  
-- **Performance e Escalabilidade** → Otimizar processos e arquitetura para maior volume de dados e usuários.  
-- **Interface e UX/UI** → Aprimorar design e usabilidade.  
-- **Segurança** → Adotar boas práticas de proteção de dados.  
-- **Integrações Futuras** → Planejar integrações com serviços externos relevantes.  
+ Este projeto tem como objetivo utilizar Inteligência Artificial (Machine Learning) para identificar quais alunos possuem maior probabilidade de cancelar sua matrícula (churn).
+Com isso, a academia pode tomar ações preventivas, oferecendo suporte ou incentivos antes que o aluno decida sair.
+
+ A ferramenta transforma a gestão da academia de reativa (esperar o cancelamento) para proativa (agir antes do churn acontecer).
 
 ---
 
@@ -81,9 +77,9 @@ Essa integração permitirá que o negócio aja antes que o cliente decida sair,
 - **Banco de Dados H2** (persistência leve e integrada)  
 - **Docker**  para containerização e deploy  
 - **Frameworks de API** → Flask 
-- **Dashboard** → Streamlit ou Dash  
+- **Dashboard** → Streamlit  
 - **Joblib**  para serialização de modelos  
-- **Dashboard** : HTML , CSS e JavaScript
+-  HTML , CSS e JavaScript
 ---
 
 ## 📈 Entregáveis do Projeto:
