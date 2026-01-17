@@ -42,10 +42,10 @@ Essa integração permitirá que o negócio aja antes que o cliente decida sair,
 
 ## 🚀 Objetivos
  
- Este projeto tem como objetivo utilizar Inteligência Artificial (Machine Learning) para identificar quais alunos possuem maior probabilidade de cancelar sua matrícula (churn).
+ • Este projeto tem como objetivo utilizar Inteligência Artificial (Machine Learning) para identificar quais alunos possuem maior probabilidade de cancelar sua matrícula (churn).
 Com isso, a academia pode tomar ações preventivas, oferecendo suporte ou incentivos antes que o aluno decida sair.
 
- A ferramenta transforma a gestão da academia de reativa (esperar o cancelamento) para proativa (agir antes do churn acontecer).
+ • A ferramenta transforma a gestão da academia de reativa (esperar o cancelamento) para proativa (agir antes do churn acontecer).
 
 ---
 
