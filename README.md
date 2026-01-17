@@ -94,7 +94,6 @@ Com isso, a academia pode tomar ações preventivas, oferecendo suporte ou incen
 - Dashboard simples para visualização de riscos e métricas  
 - Processamento batch para análises periódicas  
 - Container configurado para deploy  
-- Parametrização de métricas de retenção  
 
 ---
 
