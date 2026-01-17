@@ -73,7 +73,7 @@ Com isso, a academia pode tomar ações preventivas, oferecendo suporte ou incen
 - **Frameworks de API** → Flask 
 - **Dashboard** → Streamlit  
 - **Joblib**  para serialização de modelos  
--  HTML , CSS e JavaScript
+-  **Front end** HTML , CSS e JavaScript
 ---
 
 ## 📈 Entregáveis do Projeto:
