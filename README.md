@@ -78,9 +78,8 @@ Com isso, a academia pode tomar ações preventivas, oferecendo suporte ou incen
 - **Machine Learning** → (scikit-learn , pandas , numpy) 
 - **Banco de Dados H2** → (persistência leve e integrada)  
 - **Docker** → (para containerização e deploy)  
-- **Frameworks de API** → (Flask) 
-- **Java**
-- **Sprint Boot**
+- **Frameworks de API** → (Frameworks de API → Flask para serviços em Python)
+- **Java + Spring Boot** → (backend robusto e escalável)
 - **Joblib** → (para serialização de modelos)  
 -  **Front end** → (HTML , CSS e JavaScript)
 ---
