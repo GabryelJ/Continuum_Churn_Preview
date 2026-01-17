@@ -16,7 +16,9 @@
 
 O Projeto Continuum propõe uma solução completa para previsão de churn, unindo Data Science e Back-end: o time de DS treina o modelo preditivo e o time de BE expõe previsões via API para que o negócio aja antes que o cliente decida sair. Com base em hábitos de uso e histórico de pagamento, a academia pode identificar clientes com alta probabilidade de evasão e realizar ações de retenção.
 
-Para cada faixa de probabilidade sugerimos algumas ações de retenção ao cliente. Exemplo: para a faixa entre 60% e 80%, sugerimos oferecer um desconto ou upgrade de plano ao cliente.
+Para cada faixa de probabilidade sugerimos algumas ações de retenção ao cliente. 
+
+Exemplo: para a faixa entre 60% e 80%, sugerimos oferecer um desconto ou upgrade de plano ao cliente.
 
 ## 📊 Detalhes sobre o funcionamento de Dados: [Modelo Continuum Preview (PDF)](https://github.com/JoaoVenturini09/Continuum_Churn_Preview/blob/docker/Modelo_Continuum_Preview.pdf)
 ---
@@ -71,7 +73,8 @@ Com isso, a academia pode tomar ações preventivas, oferecendo suporte ou incen
 - **Banco de Dados H2** → (persistência leve e integrada)  
 - **Docker** → (para containerização e deploy)  
 - **Frameworks de API** → (Flask) 
-- **Dashboard** → (Streamlit)  
+- **Java**
+- **Sprint Boot**
 - **Joblib** → (para serialização de modelos)  
 -  **Front end** → (HTML , CSS e JavaScript)
 ---
