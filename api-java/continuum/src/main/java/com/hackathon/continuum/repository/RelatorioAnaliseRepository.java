@@ -14,20 +14,21 @@ public interface RelatorioAnaliseRepository extends JpaRepository<SugestaoRetenc
 
     @Query("""
         SELECT new com.hackathon.continuum.dto.RelatorioAnaliseDTO(
+            a.id,
             a.nome,
             r.probabilidadeChurn,
             r.risco,
             s.acaoRetencao,
             CONCAT(
-                r.primeiroMaisRelevante, ', ',
-                r.segundoMaisRelevante, ', ',
+                r.primeiroMaisRelevante, ' / ',
+                r.segundoMaisRelevante, ' / ',
                 r.terceiroMaisRelevante
             )
         )
         FROM SugestaoRetencaoChurn s
         JOIN s.analiseChurn a
         JOIN s.resultadoChurn r
-        ORDER BY r.probabilidadeChurn DESC
+        ORDER BY a.id DESC
     """)
     List<RelatorioAnaliseDTO> buscarRelatorioAnalises();
 }
