@@ -40,7 +40,7 @@ Essa integração permitirá que o negócio aja antes que o cliente decida sair,
 🔎 Visão geral da arquitetura
 • 	Fluxo: Dados de clientes → API Java (DTO valida e persiste em H2) → Chamada à API Python (modelo) → Resposta com probabilidade/risco → Persistência do resultado e interpretabilidade.
 
-• 	Integração: API Java (Spring) orquestra entrada e persistência; API Python (FastAPI) entrega previsões com interpretabilidade das features mais relevantes.
+• 	Integração: API Java (Spring) orquestra entrada e persistência; API Python entrega previsões com interpretabilidade das features mais relevantes.
 
 • 	Persistência: Banco H2 em modo dev para agilidade e leveza; pode evoluir para RDBMS gerenciado em produção.
 
