@@ -217,12 +217,6 @@ Para ter acesso pelo navegador usar este caminho para API:
 http://localhost:8080/index.html
 ```
 
-Para ter acesso pelo navegador usar este caminho pela OCI para API:
-
-```bash
-http://140.238.180.36:8080/index.html
-```
-
 ---
 
 ## ✅ Dicas
